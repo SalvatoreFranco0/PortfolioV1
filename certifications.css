@@ -1,0 +1,153 @@
+/* ============================================================
+   CERTIFICATIONS.CSS — Page-specific styles for certifications.html
+   Extends portfolio.css and about.css
+   ============================================================ */
+
+/* ── Page Hero (vertical layout) ── */
+.page-hero__inner {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ── Cert Grid ── */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+}
+
+/* ── Cert Card ── */
+.cert-card {
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    border-left: 3px solid var(--accent-border);
+    transition:
+        border-color var(--t-base) var(--ease),
+        transform    var(--t-base) var(--ease),
+        box-shadow   var(--t-base) var(--ease);
+}
+
+.cert-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+[data-theme="light"] .cert-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Category accent colors */
+.cert-card--ai    { --card-accent: #818cf8; }
+.cert-card--pm    { --card-accent: #34d399; }
+.cert-card--other { --card-accent: #60a5fa; }
+.cert-card--lang  { --card-accent: #f472b6; }
+
+.cert-card--ai:hover    { border-left-color: #818cf8; }
+.cert-card--pm:hover    { border-left-color: #34d399; }
+.cert-card--other:hover { border-left-color: #60a5fa; }
+.cert-card--lang:hover  { border-left-color: #f472b6; }
+
+/* ── Card top row: badge + meta ── */
+.cert-card__top {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+/* Issuer badge (initials) */
+.cert-card__issuer-badge {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+}
+
+.cert-card__issuer-badge--anthropic { background: #c96442; }
+.cert-card__issuer-badge--pmi       { background: #c0392b; }
+.cert-card__issuer-badge--google    { background: linear-gradient(135deg, #4285f4 0%, #34a853 50%, #fbbc05 75%, #ea4335 100%); font-size: 1rem; font-family: var(--font-head); }
+.cert-card__issuer-badge--coursera  { background: #0056d2; font-size: 0.9rem; font-family: var(--font-head); }
+.cert-card__issuer-badge--aba       { background: #003580; font-size: 0.5rem; }
+.cert-card__issuer-badge--cambridge { background: #003865; font-size: 0.45rem; }
+
+.cert-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+}
+
+.cert-card__issuer {
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cert-card__date {
+    font-size: 0.6875rem;
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+}
+
+/* ── Title ── */
+.cert-card__title {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    line-height: 1.35;
+}
+
+/* ── Credential ID ── */
+.cert-card__id {
+    font-size: 0.6875rem;
+    color: var(--text-3);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.cert-card__id-label {
+    background: var(--surface-2, var(--elevated));
+    border: 1px solid var(--border-sub);
+    border-radius: 3px;
+    padding: 0.05rem 0.35rem;
+    font-size: 0.5625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+/* ── Skills pills ── */
+.cert-card__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: auto;
+}
+
+@media (max-width: 640px) {
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+}
