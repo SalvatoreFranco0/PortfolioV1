@@ -19,7 +19,7 @@ Static personal portfolio website for Salvatore Franco — no build tools, frame
 ## Architecture
 
 ### Styling
-`portfolio.css` uses CSS custom properties as design tokens: Zinc dark palette + Indigo accent, with a light mode override via `[data-theme="light"]` selector. Fonts loaded from Google Fonts: Space Grotesk (headings), Inter (body), JetBrains Mono (labels).
+`portfolio.css` uses CSS custom properties as design tokens: Zinc dark palette + Indigo accent, with a light mode override via `[data-theme="light"]` selector. Fonts are self-hosted in `fonts/` (`fonts/fonts.css`): Space Grotesk (headings), Inter (body), JetBrains Mono (labels). GSAP is in `js/`. Never load fonts, scripts or media from third-party servers: `privacy.html` states that the site sends no data to third parties, and it must be updated first if that changes.
 
 ### JavaScript
 All JS is embedded directly in HTML files (no external `.js` files except `i18n.js`). Each page has inline scripts for:

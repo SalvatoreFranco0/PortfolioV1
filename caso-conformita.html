@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="case.law.pagetitle">Compliance assistant — Salvatore Franco</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="about.css">
+    <noscript><style>.fade-in, .reveal { opacity: 1; transform: none; }</style></noscript>
+    <link rel="stylesheet" href="use-cases.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <!-- Prevent flash: apply saved theme & language before paint -->
+    <script>
+        (function(){
+            var t = localStorage.getItem('theme');
+            if (t) document.documentElement.setAttribute('data-theme', t);
+            var l = localStorage.getItem('lang') || 'it';
+            if (l && l !== 'en') {
+                document.documentElement.lang = l;
+                document.documentElement.classList.add('i18n-loading');
+            }
+        })();
+    </script>
+
+    <!-- Skip to content (accessibility) -->
+    <a href="#main" class="skip-link" data-i18n="skip">Skip to content</a>
+
+    <!-- ── NAVIGATION ── -->
+    <nav class="nav nav--scrolled" id="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav__logo" aria-label="Home">SF</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" id="navLinks" role="list">
+            <li><a href="index.html#about" class="nav__link" data-i18n="nav.about">About</a></li>
+            <li><a href="index.html#skills" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="projects.html" class="nav__link" data-i18n="nav.projects">Use cases</a></li>
+            <li><a href="index.html#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="certifications.html" class="nav__link" data-i18n="nav.certifications">Certifications</a></li>
+        </ul>
+        <div class="nav__actions">
+            <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+                <span class="lang-toggle__label">IT</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+                <span class="theme-toggle__icon--moon" aria-hidden="true">&#9790;</span>
+                <span class="theme-toggle__icon--sun" aria-hidden="true">&#9728;</span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+
+    <!-- ── APERTURA ── -->
+    <header class="pbi-hero">
+        <div class="container container--wide">
+            <a href="projects.html" class="uc-back"><span aria-hidden="true">←</span> <span data-i18n="pbi.back">All use cases</span></a>
+            <h1 class="uc-hero__title" data-i18n="case.law.title">Compliance assistant</h1>
+            <p class="uc-lead" data-i18n="law.lead">A doubt about privacy, cookies or AI often has its answer in a single paragraph of a long regulation. This assistant answers from the official texts and, for every sentence, shows the passage it comes from.</p>
+            <p class="uc-note" style="margin-top:0.75rem" data-i18n="case.law.ctx">Answers on the GDPR, the AI Act and the Garante's cookie guidelines, with sources, for a fictitious mechanical SME with about 50 employees. Support, not legal advice.</p>
+            <div class="uc-actions">
+                <a href="#prova" class="btn btn--primary btn--lg" data-i18n="doc.go">Ask a question</a>
+                <a href="#how-title" class="btn btn--ghost btn--lg" data-i18n="doc.howgo">See how it answers</a>
+            </div>
+            <div class="pbi-kpis">
+                <div class="pbi-kpi"><strong data-count="3" data-ask-count="docs">3</strong><span data-i18n="law.k1">Official texts: GDPR, AI Act, Garante cookie guidelines</span></div>
+                <div class="pbi-kpi"><strong data-count="17" data-ask-count="parts">17</strong><span data-i18n="law.k2">Verbatim passages, each with its article</span></div>
+                <div class="pbi-kpi"><strong data-count="8" data-ask-count="qs">8</strong><span data-i18n="law.k3">Questions a manufacturing SME asks itself</span></div>
+                <div class="pbi-kpi"><strong data-count="1" data-ask-count="none">1</strong><span data-i18n="law.k4">Question the texts do not answer, and the assistant says so</span></div>
+            </div>
+            <p class="uc-note" style="margin-top:1rem" data-i18n="law.knote">Support for reading the texts, not legal advice. The company is fictitious; the passages are quoted from the official texts in Italian and English.</p>
+        </div>
+    </header>
+
+    <!-- ── IL CASO IN AZIONE ── -->
+    <section class="section section--surface" id="prova" aria-labelledby="prova-title">
+        <div class="container container--wide">
+            <h2 class="uc-sec-title fade-in" id="prova-title" data-i18n="case.demo">The use case in action</h2>
+            <p class="uc-lead fade-in" data-i18n="law.live.sub">Pick a question. The answer has a number for each source: click it and the text opens on the quoted article, highlighted.</p>
+            <div class="live ask" data-ask="law" style="background:var(--bg)">
+                <div class="ask__col">
+                    <h3 class="ask__h" data-i18n="doc.live.qs">Questions</h3>
+                    <div class="ask__qs" data-ask-qs role="group" aria-label="Questions"></div>
+                </div>
+                <div class="ask__col">
+                    <h3 class="ask__h" data-i18n="doc.live.ans">Answer</h3>
+                    <div class="uc-chat ask__chat" data-ask-chat aria-live="polite"></div>
+                    <p class="uc-note" style="margin-top:0.75rem" data-i18n="law.live.warn">Support for reading the texts, not legal advice. The actual case should be checked with a professional.</p>
+                    <h3 class="ask__h ask__h--src" data-i18n="doc.live.src">Sources</h3>
+                    <div class="ask__srcs" data-ask-src></div>
+                </div>
+                <div class="ask__col">
+                    <h3 class="ask__h" data-i18n="law.live.doc">Text</h3>
+                    <div class="ask__docs" data-ask-docs role="group" aria-label="Texts"></div>
+                    <div class="ask__view" data-ask-view tabindex="0" aria-label="Text"></div>
+                </div>
+            </div>
+            <p class="uc-note" style="margin-top:1rem" data-i18n="law.live.note">Questions and answers are prepared in advance on these excerpts. Each time the page loads, a check confirms that every quoted text is really in the passage it points to. The AI Act is quoted as published in 2024: later amendments are not included.</p>
+        </div>
+    </section>
+
+    <!-- ── PER CHI ── -->
+    <section class="section" aria-labelledby="who-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="who-title" data-i18n="doc.who.title">Who it is for, and what they ask</h2>
+            <p class="uc-lead fade-in" data-i18n="law.who.sub">In a small company the same person often handles privacy, IT and the website. Each question starts from the article, not from a search.</p>
+            <div class="roles" data-in>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3 data-i18n="law.role0.t">Handle staff and applicant data</h3><small data-i18n="law.role0">Management and HR</small><p data-i18n="law.role0.d">Record of processing, DPO, how long to keep CVs: the answer comes with the GDPR article to reread.</p></article>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20v12H2zM8 20h8M12 16v4"/></svg></div><h3 data-i18n="law.role1.t">Act fast on an incident</h3><small data-i18n="law.role1">IT and systems</small><p data-i18n="law.role1.d">A stolen laptop, an AI tool to introduce: deadlines and obligations, with the paragraph they come from.</p></article>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><h3 data-i18n="law.role2.t">Keep the website in order</h3><small data-i18n="law.role2">Marketing and website</small><p data-i18n="law.role2.d">Banner, technical cookies, statistics: what the Garante's guidelines say, word for word.</p></article>
+            </div>
+            <div class="can">
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg><span data-i18n="doc.can0">Search</span></h3><p data-i18n="law.can0.d">Across the official texts, starting from the question in everyday words.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4H7zM7 11c0 3-1 5-3 6M15 7h4v4h-4zM15 11c0 3-1 5-3 6"/></svg><span data-i18n="doc.can1">Cite</span></h3><p data-i18n="law.can1.d">Every sentence points to its article, with the exact wording of the text.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3M8 12h8"/></svg><span data-i18n="doc.can2">Combine</span></h3><p data-i18n="law.can2.d">Several paragraphs in the same answer, such as the high-risk list and the duties of whoever uses the system.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM4.9 4.9l14.2 14.2"/></svg><span data-i18n="doc.can3">Stop</span></h3><p data-i18n="law.can3.d">When the texts do not answer, it says so and points to a professional.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COME FUNZIONA ── -->
+    <section class="section section--surface" aria-labelledby="how-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="how-title" data-i18n="case.how">How it works</h2>
+            <p class="uc-lead fade-in" data-i18n="law.how.sub">The official texts are split by article and paragraph, each with a stable id. The answer can only rest on those passages, quotes them word for word and leaves the final judgement to a person.</p>
+            <div class="flow" data-in>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="law.flow1">Texts split by article</h3>
+                    <ul class="flow__list"><li data-i18n="law.t.gd">GDPR, Regulation (EU) 2016/679</li><li data-i18n="law.t.ai">AI Act, Regulation (EU) 2024/1689</li><li data-i18n="law.t.ck">Garante cookie guidelines, 2021</li></ul>
+                </div>
+                <div class="flow__arrow" aria-hidden="true"><svg viewBox="0 0 56 24"><path class="dg-flow" d="M2 12H48"/><path d="M44 6l8 6-8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="doc.flow2">Answer with citations</h3>
+                    <svg class="dg" viewBox="0 0 360 260" role="img" aria-label="Answer with citations"><path class="dg-flow" d="M180 130L60 40"/><path class="dg-flow" d="M180 130L300 40"/><path class="dg-flow" d="M180 130L60 220"/><path class="dg-flow" d="M180 130L300 220"/><g class="dg-pop"><rect class="dg-box" x="4" y="18" width="112" height="44" rx="9"/><text x="60" y="45" text-anchor="middle">GDPR · 33.1</text></g><g class="dg-pop"><rect class="dg-box" x="244" y="18" width="112" height="44" rx="9"/><text x="300" y="45" text-anchor="middle">GDPR · 34.1</text></g><g class="dg-pop"><rect class="dg-box" x="4" y="198" width="112" height="44" rx="9"/><text x="60" y="225" text-anchor="middle">AI Act · 26</text></g><g class="dg-pop"><rect class="dg-box" x="244" y="198" width="112" height="44" rx="9"/><text x="300" y="225" text-anchor="middle">Cookie · 7.2</text></g><g class="dg-pop"><rect style="fill:var(--bg)" x="108" y="88" width="144" height="84" rx="12"/><rect class="dg-box dg-box--on" x="108" y="88" width="144" height="84" rx="12"/><text class="dg-big" x="180" y="124" text-anchor="middle" data-i18n="doc.live.ans">Answer</text><text x="180" y="148" text-anchor="middle" data-i18n="law.t.cites">sentence + article</text></g></svg>
+                </div>
+                <div class="flow__arrow" aria-hidden="true"><svg viewBox="0 0 56 24"><path class="dg-flow" d="M2 12H48"/><path d="M44 6l8 6-8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="doc.flow3">Two checks</h3>
+                    <ul class="flow__list"><li data-i18n="law.t.c1">Quoted text found in the article</li><li data-i18n="law.t.c2">A person reads the article and decides on the actual case</li></ul>
+                    <p class="uc-note" style="margin-top:0.875rem" data-i18n="law.flow3.d">The first check is automatic. The second stays with whoever uses the answer, with a professional where needed: the article is one click away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BENEFICI POSSIBILI ── no fade-in: both texts must stay readable without JS -->
+    <section class="section" aria-labelledby="benefits-title">
+        <div class="container">
+            <h2 class="uc-sec-title" id="benefits-title" data-i18n="ben.title">Possible benefits</h2>
+            <p class="uc-lead" data-i18n="law.ben.sub">When every answer brings its article along, checking it means reading a paragraph instead of a whole regulation. Flip the switch and compare the two situations.</p>
+            <ul class="bens">
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.law.b1.before">Every doubt about the GDPR or the AI Act starts with a search through long texts.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.law.b1.after">Every doubt about the GDPR or the AI Act starts from the relevant passage of the text.</span></p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.law.b2.before">Every answer about a rule has to be compared with the text, which must first be found.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.law.b2.after">Every answer cites its source, and checking it remains with a person.</span></p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.law.b3.before">Every document from the Garante has to be picked out among many publications.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.law.b3.after">Every Garante document consulted stays cited next to the answer.</span></p>
+                    </div>
+                </li>
+            </ul>
+            <p class="uc-note" style="margin-top:1rem" data-i18n="ben.decl">Use case with fictitious data. The benefits described are possible, not results achieved with a client.</p>
+        </div>
+    </section>
+
+    <!-- ── CONTINUA ── -->
+    <section class="section section--surface" aria-labelledby="next-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="next-title" data-i18n="pbi.next.title">Keep exploring</h2>
+            <div class="uc-next">
+                <a href="caso-power-bi.html"><b data-i18n="case.pbi.title">Power BI dashboard</b><span data-i18n="xls.next.pbi">Production KPIs on a single source</span></a>
+                <a href="caso-excel.html"><b data-i18n="case.xls.title">Excel workbook for quotes</b><span data-i18n="pbi.next.xls">Price lists and formulas in one place</span></a>
+                <a href="caso-assistente.html"><b data-i18n="case.doc.title">Assistant on documents and contracts</b><span data-i18n="pbi.next.doc">Answers with the relevant clause</span></a>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- /main -->
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <span class="footer__copy">© 2026 Salvatore Franco</span>
+            <a href="mailto:salvatorefranco@outlook.it" class="footer__credit mono">salvatorefranco@outlook.it</a>
+            <a href="https://www.linkedin.com/in/salvatorefranco" target="_blank" rel="noopener noreferrer" class="footer__credit mono">LinkedIn</a>
+            <span class="footer__credit mono">Venegono Inferiore (VA)</span>
+            <a href="privacy.html" class="footer__credit mono" data-i18n="footer.privacy">Privacy</a>
+            <span class="footer__credit mono" data-i18n="footer.credit">Built with HTML · CSS · JS</span>
+        </div>
+    </footer>
+
+    <!-- Before i18n.js, so that the Before/After buttons get translated -->
+    <script src="js/law-assistant.js"></script>
+    <script src="js/doc-assistant.js"></script>
+    <script src="js/use-cases.js"></script>
+    <script src="js/benefits.js"></script>
+
+    <!-- Language support -->
+    <script src="i18n.js"></script>
+
+    <!-- Custom background -->
+    <script src="js/gradient.js"></script>
+    <script src="js/bg-gradient.js"></script>
+    <script src="js/cursor.js"></script>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks  = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('nav__links--open');
+            navToggle.classList.toggle('nav__toggle--open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav__links--open');
+                navToggle.classList.remove('nav__toggle--open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in, .reveal').forEach(el => revealObserver.observe(el));
+
+        // Hero elements: trigger on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.reveal').forEach((el, i) => {
+                setTimeout(() => el.classList.add('is-visible'), i * 60 + 80);
+            });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            if (next === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', next);
+            }
+            localStorage.setItem('theme', next === 'dark' ? '' : next);
+        });
+    </script>
+
+</body>
+</html>

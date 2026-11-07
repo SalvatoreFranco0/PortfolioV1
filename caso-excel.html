@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="case.xls.pagetitle">Excel workbook for quotes — Salvatore Franco</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="about.css">
+    <noscript><style>.fade-in, .reveal { opacity: 1; transform: none; }</style></noscript>
+    <link rel="stylesheet" href="use-cases.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <!-- Prevent flash: apply saved theme & language before paint -->
+    <script>
+        (function(){
+            var t = localStorage.getItem('theme');
+            if (t) document.documentElement.setAttribute('data-theme', t);
+            var l = localStorage.getItem('lang') || 'it';
+            if (l && l !== 'en') {
+                document.documentElement.lang = l;
+                document.documentElement.classList.add('i18n-loading');
+            }
+        })();
+    </script>
+
+    <!-- Skip to content (accessibility) -->
+    <a href="#main" class="skip-link" data-i18n="skip">Skip to content</a>
+
+    <!-- ── NAVIGATION ── -->
+    <nav class="nav nav--scrolled" id="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav__logo" aria-label="Home">SF</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" id="navLinks" role="list">
+            <li><a href="index.html#about" class="nav__link" data-i18n="nav.about">About</a></li>
+            <li><a href="index.html#skills" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="projects.html" class="nav__link" data-i18n="nav.projects">Use cases</a></li>
+            <li><a href="index.html#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="certifications.html" class="nav__link" data-i18n="nav.certifications">Certifications</a></li>
+        </ul>
+        <div class="nav__actions">
+            <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+                <span class="lang-toggle__label">IT</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+                <span class="theme-toggle__icon--moon" aria-hidden="true">&#9790;</span>
+                <span class="theme-toggle__icon--sun" aria-hidden="true">&#9728;</span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+
+    <!-- ── APERTURA ── -->
+    <header class="pbi-hero">
+        <div class="container container--wide">
+            <a href="projects.html" class="uc-back"><span aria-hidden="true">←</span> <span data-i18n="pbi.back">All use cases</span></a>
+            <h1 class="uc-hero__title" data-i18n="case.xls.title">Excel workbook for quotes</h1>
+            <p class="uc-lead" data-i18n="xls.lead">A quote should start from the client's request, not from last month's file. This workbook builds each quote from codes and quantities: price lists, machining cycles and quantity discounts live once, in linked sheets.</p>
+            <p class="uc-note" style="margin-top:0.75rem" data-i18n="case.xls.ctx">Quotes from shared price lists and formulas, for a fictitious mechanical SME with about 50 employees.</p>
+            <div class="uc-actions">
+                <a href="#tour" class="btn btn--primary btn--lg" data-i18n="xls.go">Take the workbook tour</a>
+                <a href="#prova" class="btn btn--ghost btn--lg" data-i18n="xls.try">Build a quote</a>
+            </div>
+            <div class="pbi-show" data-untilt>
+                <div class="pbi-show__frame"><img src="01.images/caso-excel/preventivo-1600.jpg" srcset="01.images/caso-excel/preventivo-1600.jpg 1600w, 01.images/caso-excel/preventivo-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2000px" alt="" width="1600" height="900"></div>
+            </div>
+            <div class="pbi-kpis">
+                <div class="pbi-kpi"><strong data-count="4">4</strong><span data-i18n="xls.k1">Linked sheets, no macros</span></div>
+                <div class="pbi-kpi"><strong data-count="8">8</strong><span data-i18n="xls.k2">Items with their machining cycle</span></div>
+                <div class="pbi-kpi"><strong data-count="5">5</strong><span data-i18n="xls.k3">Work centres with an hourly rate</span></div>
+                <div class="pbi-kpi"><strong data-count="3">3</strong><span data-i18n="xls.k4">Tracked revisions of the same quote</span></div>
+            </div>
+            <p class="uc-note" style="margin-top:1rem" data-i18n="xls.knote">Fictitious figures read from the workbook. Items, prices, client and quote numbers are examples and do not describe real business relationships.</p>
+        </div>
+    </header>
+
+    <!-- ── GIRO DEL FOGLIO ── -->
+    <section class="section" id="tour" aria-labelledby="tour-title">
+        <div class="container container--wide">
+            <h2 class="uc-sec-title fade-in" id="tour-title" data-i18n="xls.tour.title">Take the workbook tour</h2>
+            <p class="uc-lead fade-in" data-i18n="xls.tour.sub">Four sheets, one question for each part. Press Next or click the picture: the sheet zooms in on the right cells and explains what they do.</p>
+            <div class="tour" data-tour>
+                <div class="tour__tabs tour__tabs--4" role="group" aria-labelledby="tour-title">
+                    <button type="button" class="tour__tab"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6zM15 2v5h5M9 12h8M9 16h8M9 8h3"/></svg><span><b data-i18n="xls.tab1">Quote</b><small data-i18n="xls.tab1.d">Codes and quantities in, price out</small></span></button>
+                    <button type="button" class="tour__tab"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><span><b data-i18n="xls.tab2">Items and cycles</b><small data-i18n="xls.tab2.d">How each part is made</small></span></button>
+                    <button type="button" class="tour__tab"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8zM7 7h.01"/></svg><span><b data-i18n="xls.tab3">Price lists</b><small data-i18n="xls.tab3.d">One place for every price</small></span></button>
+                    <button type="button" class="tour__tab"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5M12 7v5l3 3"/></svg><span><b data-i18n="xls.tab4">Revisions</b><small data-i18n="xls.tab4.d">What changed, and why</small></span></button>
+                </div>
+                <div class="tour__body">
+                    <div class="tour__viewer">
+                        <div class="tour__canvas">
+                            <img class="tour__img" src="01.images/caso-excel/preventivo-1600.jpg" srcset="01.images/caso-excel/preventivo-1600.jpg 1600w, 01.images/caso-excel/preventivo-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2400px" data-full="01.images/caso-excel/preventivo-3200.jpg" alt="" width="1600" height="900" loading="lazy">
+                            <img class="tour__img" src="01.images/caso-excel/articoli-1600.jpg" srcset="01.images/caso-excel/articoli-1600.jpg 1600w, 01.images/caso-excel/articoli-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2400px" data-full="01.images/caso-excel/articoli-3200.jpg" alt="" width="1600" height="900" loading="lazy">
+                            <img class="tour__img" src="01.images/caso-excel/listini-1600.jpg" srcset="01.images/caso-excel/listini-1600.jpg 1600w, 01.images/caso-excel/listini-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2400px" data-full="01.images/caso-excel/listini-3200.jpg" alt="" width="1600" height="900" loading="lazy">
+                            <img class="tour__img" src="01.images/caso-excel/revisioni-1600.jpg" srcset="01.images/caso-excel/revisioni-1600.jpg 1600w, 01.images/caso-excel/revisioni-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2400px" data-full="01.images/caso-excel/revisioni-3200.jpg" alt="" width="1600" height="900" loading="lazy">
+                            <div class="tour__spot"></div>
+                        </div>
+                        <a class="tour__open" href="01.images/caso-excel/preventivo-3200.jpg" target="_blank" rel="noopener" data-i18n="pbi.full">Open at full resolution</a>
+                    </div>
+                    <div class="tour__panel">
+                        <div class="tour__count"><span data-i18n="pbi.step">Step</span> <span data-now>1</span> <span data-i18n="pbi.of">of</span> 17</div>
+                        <div class="tour__bar"><i></i></div>
+                        <ol class="tour__stops" aria-live="polite">
+                            <li class="tour__stop" data-page="0" data-region="0,0,100,100"><h3 data-i18n="xls.s0.t">The sheet you fill in</h3><p class="tour__q" data-i18n="xls.s0.q">What does whoever writes the quote type?</p><p class="tour__a" data-i18n="xls.s0.a">Only item code and quantity for each row, plus the client details. Everything else, in the coloured cells, is calculated from the linked sheets.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="6.4,26.8,56.2,10.3"><h3 data-i18n="xls.s1.t">Number and revision</h3><p class="tour__q" data-i18n="xls.s1.q">Which version am I looking at?</p><p class="tour__a" data-i18n="xls.s1.a">Revision and date are read from the revision log, and the validity date adds the days set among the parameters.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="20.3,42.2,27.4,21.6"><h3 data-i18n="xls.s2.t">Description and material</h3><p class="tour__q" data-i18n="xls.s2.q">Do I have to copy the item card?</p><p class="tour__a" data-i18n="xls.s2.a">No: from the code, a lookup formula fetches description and material from the Items sheet. A wrong code shows up at once.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="47.7,42.2,21.3,21.6"><h3 data-i18n="xls.s3.t">Cost per piece</h3><p class="tour__q" data-i18n="xls.s3.q">Where does the cost come from?</p><p class="tour__a" data-i18n="xls.s3.a">Material: weight times price per kg, plus scrap. Machining: cycle minutes times the hourly rate of each work centre, plus setup spread over the pieces.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="69.0,42.2,4.9,21.6"><h3 data-i18n="xls.s4.t">Quantity discount</h3><p class="tour__q" data-i18n="xls.s4.q">Which discount applies to this quantity?</p><p class="tour__a" data-i18n="xls.s4.a">The tier table decides: at 600 pins the 9% tier applies, without anyone remembering it.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="74.0,66.4,16.4,12.2"><h3 data-i18n="xls.s5.t">Total</h3><p class="tour__q" data-i18n="xls.s5.q">How much is the quote worth?</p><p class="tour__a" data-i18n="xls.s5.a">Price with markup and discount, subtotal, transport and total. The total also lands in the revision log.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="0,0,100,100"><h3 data-i18n="xls.s6.t">Items and cycles</h3><p class="tour__q" data-i18n="xls.s6.q">How is each part made?</p><p class="tour__a" data-i18n="xls.s6.a">For each code: material, weight and minutes on lathe, milling, grinding, welding and heat treatment.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="36.9,36.5,36.7,37.1"><h3 data-i18n="xls.s7.t">The machining cycle</h3><p class="tour__q" data-i18n="xls.s7.q">How much machine time does it take?</p><p class="tour__a" data-i18n="xls.s7.a">Engineering writes the minutes per piece once for each item. The quote reads them from here.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="73.6,36.5,16.9,37.1"><h3 data-i18n="xls.s8.t">Calculated costs</h3><p class="tour__q" data-i18n="xls.s8.q">How much does machining cost?</p><p class="tour__a" data-i18n="xls.s8.a">Minutes times the rate of each centre, with setup kept apart: change one rate and every item that uses it follows.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="0,0,100,100"><h3 data-i18n="xls.s9.t">Price lists and parameters</h3><p class="tour__q" data-i18n="xls.s9.q">Where do you change a price?</p><p class="tour__a" data-i18n="xls.s9.a">Here and only here: materials, work centres, quantity tiers and parameters such as markup, transport and validity.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="20.2,19.7,33.9,38.0"><h3 data-i18n="xls.s10.t">Materials</h3><p class="tour__q" data-i18n="xls.s10.q">Has the supplier raised the price of steel?</p><p class="tour__a" data-i18n="xls.s10.a">Update the price per kg with its date: S355 moved to €1.55/kg on 27 October, and new quotes use it straight away.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="56.7,19.7,19.5,28.8"><h3 data-i18n="xls.s11.t">Work centres</h3><p class="tour__q" data-i18n="xls.s11.q">What does a machine hour cost?</p><p class="tour__a" data-i18n="xls.s11.a">One rate per centre, shared by every item and every quote.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="56.7,57.6,19.5,25.3"><h3 data-i18n="xls.s12.t">Quantity tiers</h3><p class="tour__q" data-i18n="xls.s12.q">From how many pieces does the discount change?</p><p class="tour__a" data-i18n="xls.s12.a">Four thresholds, read by an approximate-match lookup: no discounts decided case by case.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="20.2,68.0,19.5,24.2"><h3 data-i18n="xls.s13.t">Parameters</h3><p class="tour__q" data-i18n="xls.s13.q">Which markup do we apply?</p><p class="tour__a" data-i18n="xls.s13.a">Markup, setup rate, transport and validity sit in one small table, each with a name the formulas call.</p></li>
+                            <li class="tour__stop" data-page="3" data-region="0,0,100,100"><h3 data-i18n="xls.s14.t">Revision log</h3><p class="tour__q" data-i18n="xls.s14.q">What changed since the first draft?</p><p class="tour__a" data-i18n="xls.s14.a">Each revision is a row: date, change, who made it and total. No copies of the file to compare.</p></li>
+                            <li class="tour__stop" data-page="3" data-region="6.8,45.1,82.0,10.9"><h3 data-i18n="xls.s15.t">The story of a quote</h3><p class="tour__q" data-i18n="xls.s15.q">Why did the price go up?</p><p class="tour__a" data-i18n="xls.s15.a">Quote P-2026-0139 moved from S235 to S355 at the client's request: the reason stays written next to the total.</p></li>
+                            <li class="tour__stop" data-page="3" data-region="6.8,66.9,82.0,5.5"><h3 data-i18n="xls.s16.t">The current revision</h3><p class="tour__q" data-i18n="xls.s16.q">Is the log up to date?</p><p class="tour__a" data-i18n="xls.s16.a">The last row reads its total straight from the quote; earlier rows keep the value they had at the time.</p></li>
+                        </ol>
+                        <div class="tour__dots"></div>
+                        <div class="tour__ctrl">
+                            <button type="button" class="tour__btn" data-prev><span aria-hidden="true">←</span> <span data-i18n="pbi.prev">Back</span></button>
+                            <button type="button" class="tour__btn tour__btn--next" data-next><span data-i18n="pbi.next">Next</span> <span aria-hidden="true">→</span></button>
+                            <button type="button" class="tour__btn" data-play aria-pressed="false"><span data-icon-play><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span><span data-icon-pause style="display:none"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16M17 4v16"/></svg></span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)" data-i18n="pbi.play">Auto-play</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PROVA UN PREVENTIVO ── -->
+    <section class="section section--surface" id="prova" aria-labelledby="prova-title">
+        <div class="container container--wide">
+            <h2 class="uc-sec-title fade-in" id="prova-title" data-i18n="xls.live.title">Now build a quote line</h2>
+            <p class="uc-lead fade-in" data-i18n="xls.live.sub">The same fictitious data and formulas as the workbook, recalculated here in the browser. Pick an item, change the quantity or the steel price, and watch how cost and price are built.</p>
+            <div class="live" data-quote style="background:var(--bg)">
+                <div class="live__filter" role="group" aria-labelledby="quote-item">
+                    <span id="quote-item" data-i18n="xls.live.item">Item</span>
+                    <button type="button" class="live__chip" data-art="FL-100"><span data-i18n="xls.a.fl">Flange</span></button>
+                    <button type="button" class="live__chip" data-art="AL-25"><span data-i18n="xls.a.al">Shaft</span></button>
+                    <button type="button" class="live__chip" data-art="SP-12"><span data-i18n="xls.a.sp">Welded bracket</span></button>
+                    <button type="button" class="live__chip" data-art="BU-40"><span data-i18n="xls.a.bu">Bushing</span></button>
+                    <button type="button" class="live__chip" data-art="PI-60"><span data-i18n="xls.a.pi">Plate</span></button>
+                    <button type="button" class="live__chip" data-art="IN-18"><span data-i18n="xls.a.in">Gear</span></button>
+                    <button type="button" class="live__chip" data-art="PE-08"><span data-i18n="xls.a.pe">Pin</span></button>
+                    <button type="button" class="live__chip" data-art="CO-50"><span data-i18n="xls.a.co">Valve body</span></button>
+                </div>
+                <div class="live__grid">
+                    <div class="live__cell">
+                        <h3 data-i18n="xls.live.in">What you type</h3>
+                        <label class="quote__field"><span><span data-i18n="xls.live.qty">Quantity</span> <b data-out="qty">–</b></span><input type="range" min="1" max="1000" step="1" value="400" data-qty></label>
+                        <label class="quote__field"><span><span data-i18n="xls.live.kg">Material price</span> <b><span data-out="kg">–</span> <small data-out="kgdelta"></small></b></span><input type="range" data-kg></label>
+                        <p class="uc-note"><span data-i18n="xls.live.mat">Material:</span> <span data-out="mat">–</span>. <button type="button" class="quote__reset" data-reset data-i18n="xls.live.reset">Back to list price</button></p>
+                    </div>
+                    <div class="live__cell live__cell--wide">
+                        <h3 data-i18n="xls.live.build">How the price per piece is built</h3>
+                        <div class="live__list">
+                            <div class="live__row" data-part="material"><span data-i18n="xls.p.mat">Material</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-part="work"><span data-i18n="xls.p.work">Machining</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-part="setup"><span data-i18n="xls.p.setup">Setup per piece</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-part="markup"><span data-i18n="xls.p.markup">Markup</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-part="discount"><span data-i18n="xls.p.disc">Tier discount</span><div class="live__track"><i></i></div><b>–</b></div>
+                        </div>
+                        <div class="quote__sum">
+                            <div><span data-i18n="xls.p.price">Price per piece</span><strong data-out="price">–</strong></div>
+                            <div><span data-i18n="xls.p.total">Line total</span><strong data-out="total">–</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="live__insight" aria-live="polite"><span data-i18n="xls.live.step">Tier applied:</span> <b data-out="step">–</b> <span data-i18n="xls.live.from">from</span> <b data-out="from">–</b> <span data-i18n="xls.live.pcs">pieces</span>.<span data-next-step> <span data-i18n="xls.live.miss">To reach the next tier you need</span> <b data-out="missing">–</b> <span data-i18n="xls.live.more">more pieces, for</span> <b data-out="nextdisc">–</b>.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PER CHI ── -->
+    <section class="section" aria-labelledby="who-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="who-title" data-i18n="xls.who.title">Who it is for, and what they do with it</h2>
+            <p class="uc-lead fade-in" data-i18n="xls.who.sub">Three offices work on the same workbook, each on its own part. Nobody retypes what someone else has already written.</p>
+            <div class="roles" data-in>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6zM15 2v5h5M9 12h8M9 16h8M9 8h3"/></svg></div><h3 data-i18n="xls.role0.t">Answer the request with the right figures</h3><small data-i18n="xls.role0">Sales office</small><p data-i18n="xls.role0.d">Types codes and quantities, reads cost, discount and total. When the client changes a quantity, the new revision is one row in the log.</p></article>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 12h3M18 12h3M12 3v3M12 18v3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></div><h3 data-i18n="xls.role1.t">Describe each part once</h3><small data-i18n="xls.role1">Engineering</small><p data-i18n="xls.role1.d">Material, weight and cycle minutes for each item. Every quote that uses that code reads the same cycle.</p></article>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8zM7 7h.01"/></svg></div><h3 data-i18n="xls.role2.t">Keep prices and rules in one place</h3><small data-i18n="xls.role2">Purchasing and management</small><p data-i18n="xls.role2.d">Material prices, hourly rates, markup and quantity tiers. A change made here applies to every new quote.</p></article>
+            </div>
+            <div class="can">
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3"/></svg><span data-i18n="xls.can0">Look up</span></h3><p data-i18n="xls.can0.d">From the code, description, material, weight and cycle, without copying.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 9h8M8 15h8M12 6v6"/></svg><span data-i18n="xls.can1">Calculate</span></h3><p data-i18n="xls.can1.d">Material, machining, setup and markup with the same formulas for every row.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5L5 19M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg><span data-i18n="xls.can2">Apply tiers</span></h3><p data-i18n="xls.can2.d">The discount follows the quantity, read from a table instead of from memory.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5M12 7v5l3 3"/></svg><span data-i18n="xls.can3">Track</span></h3><p data-i18n="xls.can3.d">Every revision with date, reason and total, in the same file.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COME FUNZIONA ── -->
+    <section class="section section--surface" aria-labelledby="how-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="how-title" data-i18n="case.how">How it works</h2>
+            <p class="uc-lead fade-in" data-i18n="xls.how.sub">No macros and no add-ins: structured tables, lookup formulas and named cells. It opens in any recent version of Excel, and whoever uses it can read every formula.</p>
+            <div class="flow" data-in>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="xls.flow1">Base data, written once</h3>
+                    <ul class="flow__list"><li data-i18n="xls.t.items">Items and cycles</li><li data-i18n="xls.t.mat">Materials</li><li data-i18n="xls.t.work">Work centres</li><li data-i18n="xls.t.tiers">Quantity tiers</li><li data-i18n="xls.t.par">Parameters</li></ul>
+                </div>
+                <div class="flow__arrow" aria-hidden="true"><svg viewBox="0 0 56 24"><path class="dg-flow" d="M2 12H48"/><path d="M44 6l8 6-8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="xls.flow2">Formulas on each row</h3>
+                    <svg class="dg" viewBox="0 0 360 260" role="img" aria-label="Formulas"><path class="dg-flow" d="M180 130L60 40"/><path class="dg-flow" d="M180 130L300 40"/><path class="dg-flow" d="M180 130L60 220"/><path class="dg-flow" d="M180 130L300 220"/><g class="dg-pop"><rect class="dg-box" x="4" y="18" width="112" height="44" rx="9"/><text x="60" y="45" text-anchor="middle" data-i18n="xls.t.items2">Items</text></g><g class="dg-pop"><rect class="dg-box" x="244" y="18" width="112" height="44" rx="9"/><text x="300" y="45" text-anchor="middle" data-i18n="xls.t.mat">Materials</text></g><g class="dg-pop"><rect class="dg-box" x="4" y="198" width="112" height="44" rx="9"/><text x="60" y="225" text-anchor="middle" data-i18n="xls.t.work2">Centres</text></g><g class="dg-pop"><rect class="dg-box" x="244" y="198" width="112" height="44" rx="9"/><text x="300" y="225" text-anchor="middle" data-i18n="xls.t.tiers2">Tiers</text></g><g class="dg-pop"><rect style="fill:var(--bg)" x="108" y="88" width="144" height="84" rx="12"/><rect class="dg-box dg-box--on" x="108" y="88" width="144" height="84" rx="12"/><text class="dg-big" x="180" y="124" text-anchor="middle" data-i18n="xls.tab1">Quote</text><text x="180" y="148" text-anchor="middle" data-i18n="xls.t.in">code + quantity</text></g></svg>
+                </div>
+                <div class="flow__arrow" aria-hidden="true"><svg viewBox="0 0 56 24"><path class="dg-flow" d="M2 12H48"/><path d="M44 6l8 6-8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="xls.flow3">Quote and log</h3>
+                    <div class="flow__thumbs" aria-hidden="true"><img src="01.images/caso-excel/preventivo-1600.jpg" alt="" width="1600" height="900" loading="lazy"><img src="01.images/caso-excel/revisioni-1600.jpg" alt="" width="1600" height="900" loading="lazy"></div>
+                    <p class="uc-note" data-i18n="xls.flow3.d">The quote shows the price, the log keeps every version with its reason.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BENEFICI POSSIBILI ── no fade-in: both texts must stay readable without JS -->
+    <section class="section" aria-labelledby="benefits-title">
+        <div class="container">
+            <h2 class="uc-sec-title" id="benefits-title" data-i18n="ben.title">Possible benefits</h2>
+            <p class="uc-lead" data-i18n="xls.ben.sub">When prices and rules live in one place, a quote stops being a copy to check. Flip the switch and compare the two situations.</p>
+            <ul class="bens">
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.xls.b1.before">Every quote starts from a copy of the previous one, with price lists and formulas to recheck.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.xls.b1.after">Every quote starts from the same price lists and the same formulas, without copying data.</span></p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.xls.b2.before">Every price list change has to be carried over by hand into the sheets in use.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.xls.b2.after">Every price list change is made in one place and applies to new quotes.</span></p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.xls.b3.before">Every quote revision leaves several file versions to tell apart.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.xls.b3.after">Every quote revision stays tracked in the same sheet.</span></p>
+                    </div>
+                </li>
+            </ul>
+            <p class="uc-note" style="margin-top:1rem" data-i18n="ben.decl">Use case with fictitious data. The benefits described are possible, not results achieved with a client.</p>
+        </div>
+    </section>
+
+    <!-- ── CONTINUA ── -->
+    <section class="section section--surface" aria-labelledby="next-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="next-title" data-i18n="pbi.next.title">Keep exploring</h2>
+            <div class="uc-next">
+                <a href="caso-power-bi.html"><b data-i18n="case.pbi.title">Power BI dashboard</b><span data-i18n="xls.next.pbi">Production KPIs on a single source</span></a>
+                <a href="caso-assistente.html"><b data-i18n="case.doc.title">Assistant on documents and contracts</b><span data-i18n="pbi.next.doc">Answers with the relevant clause</span></a>
+                <a href="caso-conformita.html"><b data-i18n="case.law.title">Compliance assistant</b><span data-i18n="pbi.next.law">GDPR, AI Act and cookies, with sources</span></a>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- /main -->
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <span class="footer__copy">© 2026 Salvatore Franco</span>
+            <a href="mailto:salvatorefranco@outlook.it" class="footer__credit mono">salvatorefranco@outlook.it</a>
+            <a href="https://www.linkedin.com/in/salvatorefranco" target="_blank" rel="noopener noreferrer" class="footer__credit mono">LinkedIn</a>
+            <span class="footer__credit mono">Venegono Inferiore (VA)</span>
+            <a href="privacy.html" class="footer__credit mono" data-i18n="footer.privacy">Privacy</a>
+            <span class="footer__credit mono" data-i18n="footer.credit">Built with HTML · CSS · JS</span>
+        </div>
+    </footer>
+
+    <!-- Before i18n.js, so that the Before/After buttons get translated -->
+    <script src="js/report-tour.js"></script>
+    <script src="js/quote-live.js"></script>
+    <script src="js/use-cases.js"></script>
+    <script src="js/benefits.js"></script>
+
+    <!-- Language support -->
+    <script src="i18n.js"></script>
+
+    <!-- Custom background -->
+    <script src="js/gradient.js"></script>
+    <script src="js/bg-gradient.js"></script>
+    <script src="js/cursor.js"></script>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks  = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('nav__links--open');
+            navToggle.classList.toggle('nav__toggle--open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav__links--open');
+                navToggle.classList.remove('nav__toggle--open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in, .reveal').forEach(el => revealObserver.observe(el));
+
+        // Hero elements: trigger on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.reveal').forEach((el, i) => {
+                setTimeout(() => el.classList.add('is-visible'), i * 60 + 80);
+            });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            if (next === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', next);
+            }
+            localStorage.setItem('theme', next === 'dark' ? '' : next);
+        });
+    </script>
+
+</body>
+</html>

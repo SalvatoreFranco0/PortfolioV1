@@ -31,6 +31,12 @@
     --green-bg:  rgba(52,211,153,0.07);
     --green-border: rgba(52,211,153,0.2);
 
+    /* WebGL mesh-gradient background palette (Whatamesh) — deep, premium */
+    --gradient-color-1: #09090b;   /* zinc-950 base */
+    --gradient-color-2: #1e1b4b;   /* indigo-950   */
+    --gradient-color-3: #3730a3;   /* indigo-800   */
+    --gradient-color-4: #6d28d9;   /* violet-700   */
+
     /* Type scale */
     --font-head: 'Space Grotesk', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
@@ -76,6 +82,12 @@
     --green:     #059669;   /* emerald-600 */
     --green-bg:  rgba(5,150,105,0.07);
     --green-border: rgba(5,150,105,0.2);
+
+    /* WebGL mesh-gradient palette — soft indigo pastels for light mode */
+    --gradient-color-1: #f4f4f5;   /* zinc-100 base */
+    --gradient-color-2: #e0e7ff;   /* indigo-100   */
+    --gradient-color-3: #c7d2fe;   /* indigo-200   */
+    --gradient-color-4: #a5b4fc;   /* indigo-300   */
 }
 
 
@@ -88,34 +100,50 @@ body {
     font-size: 1rem;
     line-height: 1.7;
     color: var(--text-2);
-    background: var(--bg) url('01.images/wallpaper1.png') center center / cover no-repeat fixed;
+    background: var(--bg);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color var(--t-slow), color var(--t-slow);
 }
 
-/* Wallpaper swap for light mode */
+/* Wallpaper swap for light mode — handled dynamically by canvas, fallback background color only */
 [data-theme="light"] body,
 body[data-theme="light"] {
-    background-image: url('01.images/wallpaper1_Light.png');
+    background: var(--bg);
 }
 
-/* Dark overlay so text stays readable over the wallpaper */
+/* WebGL mesh-gradient canvas (Whatamesh) — full-viewport, behind everything.
+   Opacity is the main "balanced" dial: visible flowing color, text stays legible. */
+#gradient-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.7;
+    transition: opacity var(--t-slow);
+}
+
+/* Readability scrim over the dynamic gradient. Light, no heavy blur, so the
+   flowing color reads through while body/section text stays comfortable. */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background: rgba(9, 9, 11, 0.82);
+    background: rgba(9, 9, 11, 0.42);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     z-index: 0;
     pointer-events: none;
     transition: background var(--t-slow);
 }
 
-/* Lighter overlay in light mode */
+/* Lighter scrim in light mode */
 [data-theme="light"] body::before,
 body[data-theme="light"]::before {
-    background: rgba(244, 244, 245, 0.78);
+    background: rgba(244, 244, 245, 0.5);
 }
 
 /* Ensure all direct children sit above the overlay */
@@ -616,6 +644,60 @@ body > * { position: relative; z-index: 1; }
 }
 .section--contact {
     background: linear-gradient(160deg, var(--surface) 0%, var(--bg) 100%);
+}
+
+/* ── Video background sections ── */
+.section--media {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.section--media .container {
+    position: relative;
+    z-index: 2;
+}
+.section__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.30;
+    pointer-events: none;
+}
+.section__bg-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--surface) 78%, transparent) 0%,
+        color-mix(in srgb, var(--surface) 62%, transparent) 50%,
+        color-mix(in srgb, var(--surface) 78%, transparent) 100%);
+}
+/* Light theme: keep text contrast high */
+[data-theme="light"] .section__bg {
+    opacity: 0.20;
+}
+[data-theme="light"] .section__bg-overlay {
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--surface) 86%, transparent) 0%,
+        color-mix(in srgb, var(--surface) 72%, transparent) 50%,
+        color-mix(in srgb, var(--surface) 86%, transparent) 100%);
+}
+/* Mobile: hide video, keep static surface background */
+@media (max-width: 768px) {
+    .section--media .section__bg,
+    .section--media .section__bg-overlay {
+        display: none;
+    }
+}
+/* Accessibility: respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .section--media .section__bg {
+        display: none;
+    }
 }
 
 .section__label {
@@ -1197,3 +1279,371 @@ html.i18n-loading [data-i18n] { visibility: hidden; }
     .project-card { transform: none !important; }
     .project-card::before { display: none; }
 }
+
+/* ═══════════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════════ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+        border-color var(--t-base) var(--ease),
+        background   var(--t-base) var(--ease),
+        transform    var(--t-base) var(--ease),
+        box-shadow   var(--t-base) var(--ease);
+    border-left: 3px solid transparent;
+    min-height: 380px;
+}
+
+.service-card:hover {
+    border-color: var(--accent-border);
+    border-left-color: var(--accent);
+    background: color-mix(in srgb, var(--elevated) 85%, var(--accent) 15%);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--accent-border);
+}
+
+[data-theme="light"] .service-card:hover {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08), 0 0 0 1px var(--accent-border);
+    background: color-mix(in srgb, var(--elevated) 90%, var(--accent) 10%);
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 180px;
+    background: radial-gradient(ellipse at 50% 0%, var(--accent-glow), transparent 70%);
+    opacity: 0;
+    transition: opacity var(--t-base);
+    pointer-events: none;
+}
+.service-card:hover::after { opacity: 1; }
+
+.service-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.service-card__icon {
+    font-size: 2.25rem;
+    line-height: 1;
+}
+
+.service-card__num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-3);
+    letter-spacing: 0.1em;
+}
+
+.service-card__title {
+    font-family: var(--font-head);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-1);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+}
+
+.service-card__body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.service-card__pain {
+    color: var(--text-3);
+}
+
+.service-card__solution {
+    color: var(--text-2);
+}
+
+.service-card__value {
+    color: var(--text-1);
+}
+
+.service-card__footer {
+    margin-top: auto;
+}
+
+.service-card__link {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--t-fast), transform var(--t-fast);
+}
+
+.service-card__link:hover {
+    color: var(--accent-hi);
+    transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════
+   EXPERIENCE — list + animated timeline
+   (ported from about.css, extended with a
+   scroll-driven vertical timeline)
+   ═══════════════════════════════════════ */
+.exp-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: 2.5rem;
+}
+
+/* Static timeline track */
+.exp-list::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+    border-radius: 2px;
+}
+
+/* Animated fill that "draws" as you scroll (GSAP scrubs scaleY 0 → 1) */
+.exp-progress {
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent-hi));
+    transform: scaleY(0);
+    transform-origin: top center;
+    pointer-events: none;
+}
+
+.exp-item {
+    position: relative;
+    padding: 2.5rem 1.5rem;
+    border-bottom: 1px solid var(--border-sub);
+    border-radius: var(--radius-lg);
+    transition: background var(--t-base);
+}
+.exp-item:hover {
+    background: var(--accent-bg);
+}
+.exp-item:first-child { margin-top: 0; }
+.exp-item:last-child  { border-bottom: none; }
+
+/* Timeline node dot, centered on the track */
+.exp-item::before {
+    content: '';
+    position: absolute;
+    left: -1.85rem;
+    top: 2.6rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--bg);
+    z-index: 1;
+}
+
+/* Header: company + role on left, date on right */
+.exp-item__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.25rem;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.exp-item__company {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.375rem;
+}
+
+.exp-item__role {
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    line-height: 1.3;
+}
+
+.exp-item__date {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--text-2);
+    white-space: nowrap;
+    padding-top: 0.25rem;
+    text-align: right;
+}
+
+/* Description */
+.exp-item__desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-2);
+    margin-bottom: 1.25rem;
+}
+
+/* Sub-items with left border */
+.exp-item__subs {
+    margin: 1.25rem 0;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--accent-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.exp-item__sub {
+    font-size: 0.9rem;
+    color: var(--text-2);
+    line-height: 1.75;
+    padding: 0.25rem 0;
+}
+.exp-item__sub strong {
+    color: var(--text-1);
+    font-weight: 600;
+}
+
+/* Tags row */
+.exp-item__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.25rem;
+}
+
+@media (max-width: 640px) {
+    .exp-list {
+        padding-left: 1.75rem;
+    }
+    .exp-list::before,
+    .exp-progress {
+        left: 0.5rem;
+    }
+    .exp-item {
+        padding: 2rem 1rem;
+    }
+    .exp-item::before {
+        left: -1.35rem;
+        top: 2.1rem;
+    }
+    .exp-item__header {
+        grid-template-columns: 1fr;
+    }
+    .exp-item__date {
+        text-align: left;
+    }
+}
+
+/* ============================================================
+   CUSTOM CURSOR  (dot + trailing ring)
+   Activated by js/cursor.js, which adds .has-custom-cursor to
+   <html>. Color follows --accent, so it tracks the theme.
+   ============================================================ */
+.cursor-dot,
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    will-change: transform;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-dot.is-visible,
+.cursor-ring.is-visible {
+    opacity: 1;
+}
+
+.cursor-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    transition: opacity 0.2s ease, width 0.18s ease, height 0.18s ease;
+}
+
+.cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    background: transparent;
+    transition:
+        opacity 0.25s ease,
+        width 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 0.22s ease,
+        border-color 0.22s ease;
+}
+
+/* Hover over interactive elements: ring grows + faint fill, dot shrinks */
+.cursor-ring--hover {
+    width: 52px;
+    height: 52px;
+    background: var(--accent-bg);
+    border-color: var(--accent-hi);
+}
+.cursor-dot--hover {
+    width: 4px;
+    height: 4px;
+}
+
+/* Hide the system cursor only while the custom cursor is active */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+    cursor: none;
+}
+
+/* Safety fallbacks: never show the custom cursor on touch / reduced motion */
+@media (pointer: coarse) {
+    .cursor-dot,
+    .cursor-ring { display: none; }
+    html.has-custom-cursor,
+    html.has-custom-cursor * { cursor: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .cursor-dot,
+    .cursor-ring { display: none; }
+    html.has-custom-cursor,
+    html.has-custom-cursor * { cursor: auto; }
+}
+

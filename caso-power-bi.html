@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="case.pbi.pagetitle">Power BI dashboard — Salvatore Franco</title>
+    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="about.css">
+    <noscript><style>.fade-in, .reveal { opacity: 1; transform: none; }</style></noscript>
+    <link rel="stylesheet" href="use-cases.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <!-- Prevent flash: apply saved theme & language before paint -->
+    <script>
+        (function(){
+            var t = localStorage.getItem('theme');
+            if (t) document.documentElement.setAttribute('data-theme', t);
+            var l = localStorage.getItem('lang') || 'it';
+            if (l && l !== 'en') {
+                document.documentElement.lang = l;
+                document.documentElement.classList.add('i18n-loading');
+            }
+        })();
+    </script>
+
+    <!-- Skip to content (accessibility) -->
+    <a href="#main" class="skip-link" data-i18n="skip">Skip to content</a>
+
+    <!-- ── NAVIGATION ── -->
+    <nav class="nav nav--scrolled" id="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav__logo" aria-label="Home">SF</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" id="navLinks" role="list">
+            <li><a href="index.html#about" class="nav__link" data-i18n="nav.about">About</a></li>
+            <li><a href="index.html#skills" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="projects.html" class="nav__link" data-i18n="nav.projects">Use cases</a></li>
+            <li><a href="index.html#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="certifications.html" class="nav__link" data-i18n="nav.certifications">Certifications</a></li>
+        </ul>
+        <div class="nav__actions">
+            <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+                <span class="lang-toggle__label">IT</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+                <span class="theme-toggle__icon--moon" aria-hidden="true">&#9790;</span>
+                <span class="theme-toggle__icon--sun" aria-hidden="true">&#9728;</span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main">
+
+    <!-- ── APERTURA ── -->
+    <header class="pbi-hero">
+        <div class="container container--wide">
+            <a href="projects.html" class="uc-back"><span aria-hidden="true">←</span> <span data-i18n="pbi.back">All use cases</span></a>
+            <h1 class="uc-hero__title" data-i18n="case.pbi.title">Power BI dashboard</h1>
+            <p class="uc-lead" data-i18n="pbi.lead">A production meeting should start from decisions, not from hunting for the right figures. This report brings revenue, OEE, downtime and deliveries onto a single source that everyone reads the same way.</p>
+            <p class="uc-note" style="margin-top:0.75rem" data-i18n="case.pbi.ctx">Production, order and client KPIs in a single dashboard, for a fictitious mechanical SME with about 50 employees.</p>
+            <div class="uc-actions">
+                <a href="#tour" class="btn btn--primary btn--lg" data-i18n="pbi.go">Take the report tour</a>
+                <a href="#prova" class="btn btn--ghost btn--lg" data-i18n="pbi.try">Try the filters</a>
+            </div>
+            <div class="pbi-show" data-untilt>
+                <div class="pbi-show__frame"><img src="01.images/caso-power-bi/executive-overview-1600.jpg" srcset="01.images/caso-power-bi/executive-overview-1600.jpg 1600w, 01.images/caso-power-bi/executive-overview-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2000px" alt="Executive Overview" width="1600" height="900"></div>
+            </div>
+            <div class="pbi-kpis">
+                <div class="pbi-kpi"><strong data-count="72.88" data-dec="2" data-suffix="%">72,88%</strong><span data-i18n="pbi.k1">Average OEE, last day</span></div>
+                <div class="pbi-kpi"><strong data-count="89" data-suffix="%">89%</strong><span data-i18n="pbi.k2">On-time deliveries</span></div>
+                <div class="pbi-kpi"><strong data-count="37.57" data-dec="2">37,57</strong><span data-i18n="pbi.k3">Average lead time, days</span></div>
+                <div class="pbi-kpi"><strong data-count="378">378</strong><span data-i18n="pbi.k4">Orders in production</span></div>
+            </div>
+            <p class="uc-note" style="margin-top:1rem" data-i18n="pbi.knote">Fictitious values read from the report. All data and client names in the report are fictitious and do not describe real business relationships.</p>
+        </div>
+    </header>
+
+    <!-- ── GIRO DEL REPORT ── -->
+    <section class="section" id="tour" aria-labelledby="tour-title">
+        <div class="container container--wide">
+            <h2 class="uc-sec-title fade-in" id="tour-title" data-i18n="pbi.tour.title">Take the report tour</h2>
+            <p class="uc-lead fade-in" data-i18n="pbi.tour.sub">Three pages, one question for each chart. Press Next or click the picture: the report zooms in on the right spot and explains what you can do with it.</p>
+            <div class="tour" data-tour>
+                <div class="tour__tabs" role="group" aria-labelledby="tour-title">
+                    <button type="button" class="tour__tab"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg><span><b data-i18n="pbi.tab1">Executive Overview</b><small data-i18n="pbi.tab1.d">How the year is going</small></span></button>
+                    <button type="button" class="tour__tab"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21V9l7 4V9l7 4V3h5v18zM7 17h2M13 17h2"/></svg><span><b data-i18n="pbi.tab2">Production and Lines</b><small data-i18n="pbi.tab2.d">Where the factory stops</small></span></button>
+                    <button type="button" class="tour__tab"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v11H2zM14 10h4l4 4v3h-8zM7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg><span><b data-i18n="pbi.tab3">Orders and OEM Clients</b><small data-i18n="pbi.tab3.d">What to deliver, and to whom</small></span></button>
+                </div>
+                <div class="tour__body">
+                    <div class="tour__viewer">
+                        <div class="tour__canvas">
+                            <img class="tour__img" src="01.images/caso-power-bi/executive-overview-1600.jpg" srcset="01.images/caso-power-bi/executive-overview-1600.jpg 1600w, 01.images/caso-power-bi/executive-overview-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2400px" data-full="01.images/caso-power-bi/executive-overview-3200.jpg" alt="Executive Overview" width="1600" height="900" loading="lazy">
+                            <img class="tour__img" src="01.images/caso-power-bi/produzione-linee-1600.jpg" srcset="01.images/caso-power-bi/produzione-linee-1600.jpg 1600w, 01.images/caso-power-bi/produzione-linee-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2400px" data-full="01.images/caso-power-bi/produzione-linee-3200.jpg" alt="Production and Lines" width="1600" height="900" loading="lazy">
+                            <img class="tour__img" src="01.images/caso-power-bi/ordini-clienti-1600.jpg" srcset="01.images/caso-power-bi/ordini-clienti-1600.jpg 1600w, 01.images/caso-power-bi/ordini-clienti-3200.jpg 3190w" sizes="(max-width: 768px) 800px, 2400px" data-full="01.images/caso-power-bi/ordini-clienti-3200.jpg" alt="Orders and OEM Clients" width="1600" height="900" loading="lazy">
+                            <div class="tour__spot"></div>
+                        </div>
+                        <a class="tour__open" href="01.images/caso-power-bi/executive-overview-3200.jpg" target="_blank" rel="noopener" data-i18n="pbi.full">Open at full resolution</a>
+                    </div>
+                    <div class="tour__panel">
+                        <div class="tour__count"><span data-i18n="pbi.step">Step</span> <span data-now>1</span> <span data-i18n="pbi.of">of</span> 16</div>
+                        <div class="tour__bar"><i></i></div>
+                        <ol class="tour__stops" aria-live="polite">
+                            <li class="tour__stop" data-page="0" data-region="0,0,100,100"><h3 data-i18n="pbi.s0.t">The page for management</h3><p class="tour__q" data-i18n="pbi.s0.q">How is the year going, in one minute?</p><p class="tour__a" data-i18n="pbi.s0.a">Start here: key figures on the left, when you sell in the centre, where you sell and who buys on the right. The buttons lead to the other two pages.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="0,26,21,52"><h3 data-i18n="pbi.s1.t">Key figures</h3><p class="tour__q" data-i18n="pbi.s1.q">Are we on target?</p><p class="tour__a" data-i18n="pbi.s1.a">Revenue, target, gross margin and orders confirmed, in the pipeline and in production sit in one column, always updated on the chosen filter.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="21,14,24,45"><h3 data-i18n="pbi.s2.t">Seasonality</h3><p class="tour__q" data-i18n="pbi.s2.q">How much does the high season weigh?</p><p class="tour__a" data-i18n="pbi.s2.a">Compare high, low and off season, and pick the season to look at above: useful to prepare capacity and materials ahead of time.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="45.5,15,54.5,43"><h3 data-i18n="pbi.s3.t">The map</h3><p class="tour__q" data-i18n="pbi.s3.q">In which countries do we sell?</p><p class="tour__a" data-i18n="pbi.s3.a">Each colour is a country. A click on the map filters the whole page on that market.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="21,58,79,42"><h3 data-i18n="pbi.s4.t">Revenue by client</h3><p class="tour__q" data-i18n="pbi.s4.q">Who does revenue depend on?</p><p class="tour__a" data-i18n="pbi.s4.a">Clients in order of weight: you see at once if a few names carry much of the year.</p></li>
+                            <li class="tour__stop" data-page="0" data-region="73,0,27,12"><h3 data-i18n="pbi.s5.t">Bookmarks</h3><p class="tour__q" data-i18n="pbi.s5.q">How do I switch view without redoing the filters?</p><p class="tour__a" data-i18n="pbi.s5.a">Italy, Europe, America or no filter: one click and the whole page realigns. Handy in a meeting, moving from one market to another.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="0,0,100,100"><h3 data-i18n="pbi.s6.t">The page for production</h3><p class="tour__q" data-i18n="pbi.s6.q">Where does the factory stop?</p><p class="tour__a" data-i18n="pbi.s6.a">One look at pieces produced, OEE, downtime causes and comparison with the plan, for each line and each period.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="0,0,14,56"><h3 data-i18n="pbi.s7.t">Filters</h3><p class="tour__q" data-i18n="pbi.s7.q">How do I look at a single line?</p><p class="tour__a" data-i18n="pbi.s7.a">Pick a line, period or fault cause: all the charts on the page update together.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="14,2,32,48"><h3 data-i18n="pbi.s8.t">Pieces, OEE and throughput</h3><p class="tour__q" data-i18n="pbi.s8.q">How much are we really producing?</p><p class="tour__a" data-i18n="pbi.s8.a">Pieces produced, average OEE and deviation from plan on top, then throughput by technology and product family.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="46,1,54,48"><h3 data-i18n="pbi.s9.t">Downtime causes</h3><p class="tour__q" data-i18n="pbi.s9.q">Why did the machines stop?</p><p class="tour__a" data-i18n="pbi.s9.a">Downtime minutes split by cause and line: you see where to act first, instead of arguing from memory.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="14,50,60,50"><h3 data-i18n="pbi.s10.t">Planned and actual</h3><p class="tour__q" data-i18n="pbi.s10.q">Does production follow the plan?</p><p class="tour__a" data-i18n="pbi.s10.a">Planned and actual side by side. The chart goes down from year to quarter, month and day to find when the gap began.</p></li>
+                            <li class="tour__stop" data-page="1" data-region="74,50,26,50"><h3 data-i18n="pbi.s11.t">OEE by line</h3><p class="tour__q" data-i18n="pbi.s11.q">Which line performs best?</p><p class="tour__a" data-i18n="pbi.s11.a">Lines in order of OEE: a simple ranking to decide where to look first.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="0,0,100,100"><h3 data-i18n="pbi.s12.t">The page for order management</h3><p class="tour__q" data-i18n="pbi.s12.q">What to deliver, and to whom?</p><p class="tour__a" data-i18n="pbi.s12.a">Margins and volumes by client, delivery punctuality, lead time and the status of each order on the same page.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="15,0,84,41"><h3 data-i18n="pbi.s13.t">Top clients</h3><p class="tour__q" data-i18n="pbi.s13.q">Who brings margin and who brings volume?</p><p class="tour__a" data-i18n="pbi.s13.a">Two rankings side by side: the clients who order most are not always those who bring the most.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="0,40,37,24"><h3 data-i18n="pbi.s14.t">Punctuality and lead time</h3><p class="tour__q" data-i18n="pbi.s14.q">Are we delivering on time?</p><p class="tour__a" data-i18n="pbi.s14.a">Share of on-time deliveries and average lead time by product family: the figures to have in front of you before promising a date.</p></li>
+                            <li class="tour__stop" data-page="2" data-region="0,66,37,34"><h3 data-i18n="pbi.s15.t">Order status</h3><p class="tour__q" data-i18n="pbi.s15.q">How many orders are late?</p><p class="tour__a" data-i18n="pbi.s15.a">Shipped, in production, confirmed, late and cancelled: you see at once how many need attention.</p></li>
+                        </ol>
+                        <div class="tour__dots"></div>
+                        <div class="tour__ctrl">
+                            <button type="button" class="tour__btn" data-prev><span aria-hidden="true">←</span> <span data-i18n="pbi.prev">Back</span></button>
+                            <button type="button" class="tour__btn tour__btn--next" data-next><span data-i18n="pbi.next">Next</span> <span aria-hidden="true">→</span></button>
+                            <button type="button" class="tour__btn" data-play aria-pressed="false"><span data-icon-play><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span><span data-icon-pause style="display:none"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16M17 4v16"/></svg></span><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)" data-i18n="pbi.play">Auto-play</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PROVA I FILTRI ── -->
+    <section class="section section--surface" id="prova" aria-labelledby="prova-title">
+        <div class="container container--wide">
+            <h2 class="uc-sec-title fade-in" id="prova-title" data-i18n="pbi.live.title">Now try it yourself</h2>
+            <p class="uc-lead fade-in" data-i18n="pbi.live.sub">The same fictitious data as the report, recalculated here in the browser. Pick a year, click a line and watch OEE, production and downtime change: this is how you question a dashboard.</p>
+            <div class="live" data-live style="background:var(--bg)">
+                <div class="live__filter" role="group" aria-labelledby="live-year">
+                    <span id="live-year" data-i18n="pbi.live.year">Year</span>
+                    <button type="button" class="live__chip" data-year="all" data-i18n="pbi.live.all">All</button>
+                    <button type="button" class="live__chip" data-year="2023">2023</button>
+                    <button type="button" class="live__chip" data-year="2024">2024</button>
+                    <button type="button" class="live__chip" data-year="2025">2025</button>
+                    <button type="button" class="live__chip" data-year="2026">2026</button>
+                </div>
+                <div class="live__grid">
+                    <div class="live__cell">
+                        <h3 data-i18n="pbi.live.oee">OEE</h3>
+                        <div class="live__gauge"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/></svg><strong data-oee>–</strong></div>
+                        <div class="live__row" data-f="avail"><span data-i18n="pbi.live.avail">Availability</span><div class="live__track"><i></i></div><b>–</b></div>
+                        <div class="live__row" data-f="perf"><span data-i18n="pbi.live.perf">Performance</span><div class="live__track"><i></i></div><b>–</b></div>
+                        <div class="live__row" data-f="qual"><span data-i18n="pbi.live.qual">Quality</span><div class="live__track"><i></i></div><b>–</b></div>
+                    </div>
+                    <div class="live__cell live__cell--wide">
+                        <h3 data-i18n="pbi.live.lines">OEE by line: click to filter</h3>
+                        <div class="live__list">
+                            <button type="button" class="live__line" data-line="L01"><span>Linea Alpha</span><div class="live__track"><i></i></div><b>–</b></button>
+                            <button type="button" class="live__line" data-line="L02"><span>Linea Beta</span><div class="live__track"><i></i></div><b>–</b></button>
+                            <button type="button" class="live__line" data-line="L03"><span>Linea Gamma</span><div class="live__track"><i></i></div><b>–</b></button>
+                            <button type="button" class="live__line" data-line="L04"><span>Linea Delta</span><div class="live__track"><i></i></div><b>–</b></button>
+                            <button type="button" class="live__line" data-line="L05"><span>Linea Epsilon</span><div class="live__track"><i></i></div><b>–</b></button>
+                            <button type="button" class="live__line" data-line="L06"><span>Linea Zeta</span><div class="live__track"><i></i></div><b>–</b></button>
+                            <button type="button" class="live__line" data-line="L07"><span>Linea Eta</span><div class="live__track"><i></i></div><b>–</b></button>
+                            <button type="button" class="live__line" data-line="L08"><span>Linea Theta</span><div class="live__track"><i></i></div><b>–</b></button>
+                        </div>
+                    </div>
+                    <div class="live__cell">
+                        <h3 data-i18n="pbi.live.prod">Production, pieces</h3>
+                        <div class="live__row" data-p="pieces"><span data-i18n="pbi.live.pieces">Produced</span><div class="live__track"><i></i></div><b>–</b></div>
+                        <div class="live__row" data-p="plan"><span data-i18n="pbi.live.plan">Planned</span><div class="live__track"><i></i></div><b>–</b></div>
+                        <div class="live__row" data-p="scrap"><span data-i18n="pbi.live.scrap">Scrapped</span><div class="live__track"><i></i></div><b>–</b></div>
+                    </div>
+                    <div class="live__cell live__cell--wide">
+                        <h3 data-i18n="pbi.live.down">Downtime by cause, hours</h3>
+                        <div class="live__list">
+                            <div class="live__row" data-c="0"><span data-i18n="pbi.cause0">Waiting for material</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-c="1"><span data-i18n="pbi.cause1">Shift change</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-c="2"><span data-i18n="pbi.cause2">Quality check</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-c="3"><span data-i18n="pbi.cause3">Mechanical fault</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-c="4"><span data-i18n="pbi.cause4">Planned maintenance</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-c="5"><span data-i18n="pbi.cause5">Plant cleaning</span><div class="live__track"><i></i></div><b>–</b></div>
+                            <div class="live__row" data-c="6"><span data-i18n="pbi.cause6">Setup/mould change</span><div class="live__track"><i></i></div><b>–</b></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="live__insight" aria-live="polite"><span data-i18n="pbi.live.top">Main downtime cause:</span> <b data-top-cause>–</b>. <span data-i18n="pbi.live.best">Line with the highest OEE:</span> <b data-best-line>–</b>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PER CHI ── -->
+    <section class="section" aria-labelledby="who-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="who-title" data-i18n="pbi.who.title">Who it is for, and what they do with it</h2>
+            <p class="uc-lead fade-in" data-i18n="pbi.who.sub">The same source serves different questions. Each role finds its page and stops waiting for an extract.</p>
+            <div class="roles" data-in>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><h3 data-i18n="pbi.role0.t">See in one minute how the year is going</h3><small data-i18n="pbi.role0">Management</small><p data-i18n="pbi.role0.d">Revenue against target, margin by product family, seasonality and markets. When a figure looks wrong, you open the detail instead of asking for a new file.</p></article>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21V9l7 4V9l7 4V3h5v18zM7 17h2M13 17h2"/></svg></div><h3 data-i18n="pbi.role1.t">See where time is lost</h3><small data-i18n="pbi.role1">Production manager</small><p data-i18n="pbi.role1.d">OEE by line, downtime minutes by cause and comparison with the plan. The morning meeting starts from what happened yesterday, not from who has the latest figure.</p></article>
+                <article class="role fade-in"><div class="role__ico"><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 6h12v11H2zM14 10h4l4 4v3h-8zM7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM18 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><h3 data-i18n="pbi.role2.t">Know what you can promise</h3><small data-i18n="pbi.role2">Sales and logistics</small><p data-i18n="pbi.role2.d">Order status, on-time deliveries and lead time by family. Before giving a client a date, you check what the data says.</p></article>
+            </div>
+            <div class="can">
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18l-7 8v7l-4 2v-9z"/></svg><span data-i18n="pbi.can0">Filter</span></h3><p data-i18n="pbi.can0.d">Season, period, line, downtime cause: one click and all charts realign.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 20V10M12 20V4M6 20v-6"/></svg><span data-i18n="pbi.can1">Compare</span></h3><p data-i18n="pbi.can1.d">Plan and actual, margin and volume, one line with another, on the same page.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3M11 8v6M8 11h6"/></svg><span data-i18n="pbi.can2">Go into detail</span></h3><p data-i18n="pbi.can2.d">From year to quarter, month and day, down to the moment the figure changed.</p></div>
+                <div class="fade-in"><h3><svg class="uc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-i18n="pbi.can3">Save views</span></h3><p data-i18n="pbi.can3.d">Bookmarks by market ready to open in a meeting, without redoing the filters.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COME FUNZIONA ── -->
+    <section class="section section--surface" aria-labelledby="how-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="how-title" data-i18n="case.how">How it works</h2>
+            <p class="uc-lead fade-in" data-i18n="pbi.how.sub">Nothing magic: tidy tables, linked once, and measures calculated the same way for everyone. When the data updates, every page updates.</p>
+            <div class="flow" data-in>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="pbi.flow1">Excel file</h3>
+                    <ul class="flow__list"><li data-i18n="pbi.t.clients">Clients</li><li data-i18n="pbi.t.products">Products</li><li data-i18n="pbi.t.lines">Lines</li><li data-i18n="pbi.t.orders">Orders</li><li data-i18n="pbi.t.prod">Production</li><li data-i18n="pbi.t.quality">Quality</li><li data-i18n="pbi.t.stock">Stock</li><li data-i18n="pbi.t.plan">Plan</li><li data-i18n="pbi.t.oee">OEE</li></ul>
+                </div>
+                <div class="flow__arrow" aria-hidden="true"><svg viewBox="0 0 56 24"><path class="dg-flow" d="M2 12H48"/><path d="M44 6l8 6-8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="pbi.flow2">Data model</h3>
+                    <svg class="dg" viewBox="0 0 360 260" role="img" aria-label="Data model"><path class="dg-flow" d="M180 130L60 40"/><path class="dg-flow" d="M180 130L300 40"/><path class="dg-flow" d="M180 130L60 220"/><path class="dg-flow" d="M180 130L300 220"/><g class="dg-pop"><rect class="dg-box" x="4" y="18" width="112" height="44" rx="9"/><text x="60" y="45" text-anchor="middle" data-i18n="pbi.t.clients">Clients</text></g><g class="dg-pop"><rect class="dg-box" x="244" y="18" width="112" height="44" rx="9"/><text x="300" y="45" text-anchor="middle" data-i18n="pbi.t.products">Products</text></g><g class="dg-pop"><rect class="dg-box" x="4" y="198" width="112" height="44" rx="9"/><text x="60" y="225" text-anchor="middle" data-i18n="pbi.t.lines">Lines</text></g><g class="dg-pop"><rect class="dg-box" x="244" y="198" width="112" height="44" rx="9"/><text x="300" y="225" text-anchor="middle" data-i18n="pbi.t.cal">Calendar</text></g><g class="dg-pop"><rect style="fill:var(--bg)" x="108" y="88" width="144" height="84" rx="12"/><rect class="dg-box dg-box--on" x="108" y="88" width="144" height="84" rx="12"/><text class="dg-big" x="180" y="124" text-anchor="middle" data-i18n="pbi.t.orders">Orders</text><text x="180" y="148" text-anchor="middle"><tspan data-i18n="pbi.t.prod">Production</tspan>, OEE</text></g></svg>
+                </div>
+                <div class="flow__arrow" aria-hidden="true"><svg viewBox="0 0 56 24"><path class="dg-flow" d="M2 12H48"/><path d="M44 6l8 6-8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <div class="flow__col" style="background:var(--bg)">
+                    <h3 data-i18n="pbi.flow3">Three pages, three roles</h3>
+                    <div class="flow__thumbs" aria-hidden="true"><img src="01.images/caso-power-bi/executive-overview-1600.jpg" alt="" width="1600" height="900" loading="lazy"><img src="01.images/caso-power-bi/produzione-linee-1600.jpg" alt="" width="1600" height="900" loading="lazy"><img src="01.images/caso-power-bi/ordini-clienti-1600.jpg" alt="" width="1600" height="900" loading="lazy"></div>
+                    <p class="uc-note" data-i18n="pbi.flow3.d">Management, production and orders read the same figures, each from their own point of view.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BENEFICI POSSIBILI ── no fade-in: both texts must stay readable without JS -->
+    <section class="section" aria-labelledby="benefits-title">
+        <div class="container">
+            <h2 class="uc-sec-title" id="benefits-title" data-i18n="ben.title">Possible benefits</h2>
+            <p class="uc-lead" data-i18n="pbi.ben.sub">A single source changes how people work even before the figures do: less time preparing data, more time deciding. Flip the switch and compare the two situations.</p>
+            <ul class="bens">
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.pbi.b1.before">Every production meeting starts from different extracts, to be aligned by hand.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.pbi.b1.after">Every production meeting starts from the same KPIs, read from the same dashboard.</span></p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.pbi.b2.before">Every monthly report is rebuilt by copying data from several files.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.pbi.b2.after">Every monthly report updates from the same sources, without copying data.</span></p>
+                    </div>
+                </li>
+                <li class="benefit">
+                    <div class="benefit__texts" aria-live="polite">
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.before">Before</strong> <span data-i18n="case.pbi.b3.before">Every question about a figure needs a new extract.</span></p>
+                        <p class="benefit__text"><strong class="benefit__label mono" data-i18n="ben.after">After</strong> <span data-i18n="case.pbi.b3.after">Every question about a figure starts from a filter on the same page.</span></p>
+                    </div>
+                </li>
+            </ul>
+            <p class="uc-note" style="margin-top:1rem" data-i18n="ben.decl">Use case with fictitious data. The benefits described are possible, not results achieved with a client.</p>
+        </div>
+    </section>
+
+    <!-- ── CONTINUA ── -->
+    <section class="section section--surface" aria-labelledby="next-title">
+        <div class="container">
+            <h2 class="uc-sec-title fade-in" id="next-title" data-i18n="pbi.next.title">Keep exploring</h2>
+            <div class="uc-next">
+                <a href="caso-excel.html"><b data-i18n="case.xls.title">Excel workbook for quotes</b><span data-i18n="pbi.next.xls">Price lists and formulas in one place</span></a>
+                <a href="caso-assistente.html"><b data-i18n="case.doc.title">Assistant on documents and contracts</b><span data-i18n="pbi.next.doc">Answers with the relevant clause</span></a>
+                <a href="caso-conformita.html"><b data-i18n="case.law.title">Compliance assistant</b><span data-i18n="pbi.next.law">GDPR, AI Act and cookies, with sources</span></a>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- /main -->
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <span class="footer__copy">© 2026 Salvatore Franco</span>
+            <a href="mailto:salvatorefranco@outlook.it" class="footer__credit mono">salvatorefranco@outlook.it</a>
+            <a href="https://www.linkedin.com/in/salvatorefranco" target="_blank" rel="noopener noreferrer" class="footer__credit mono">LinkedIn</a>
+            <span class="footer__credit mono">Venegono Inferiore (VA)</span>
+            <a href="privacy.html" class="footer__credit mono" data-i18n="footer.privacy">Privacy</a>
+            <span class="footer__credit mono" data-i18n="footer.credit">Built with HTML · CSS · JS</span>
+        </div>
+    </footer>
+
+    <!-- Before i18n.js, so that the Before/After buttons get translated -->
+    <script src="js/report-data.js"></script>
+    <script src="js/report-tour.js"></script>
+    <script src="js/use-cases.js"></script>
+    <script src="js/benefits.js"></script>
+
+    <!-- Language support -->
+    <script src="i18n.js"></script>
+
+    <!-- Custom background -->
+    <script src="js/gradient.js"></script>
+    <script src="js/bg-gradient.js"></script>
+    <script src="js/cursor.js"></script>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks  = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('nav__links--open');
+            navToggle.classList.toggle('nav__toggle--open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav__links--open');
+                navToggle.classList.remove('nav__toggle--open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in, .reveal').forEach(el => revealObserver.observe(el));
+
+        // Hero elements: trigger on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.reveal').forEach((el, i) => {
+                setTimeout(() => el.classList.add('is-visible'), i * 60 + 80);
+            });
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            if (next === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', next);
+            }
+            localStorage.setItem('theme', next === 'dark' ? '' : next);
+        });
+    </script>
+
+</body>
+</html>

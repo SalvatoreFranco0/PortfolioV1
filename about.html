@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About — Salvatore Franco</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="portfolio.css">
     <link rel="stylesheet" href="about.css">
 </head>
@@ -17,7 +15,7 @@
         (function(){
             var t = localStorage.getItem('theme');
             if (t) document.documentElement.setAttribute('data-theme', t);
-            var l = localStorage.getItem('lang');
+            var l = localStorage.getItem('lang') || 'it';
             if (l && l !== 'en') {
                 document.documentElement.lang = l;
                 document.documentElement.classList.add('i18n-loading');
@@ -35,12 +33,11 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav__links" id="navLinks" role="list">
-            <li><a href="#about"                  class="nav__link" data-i18n="nav.about">About</a></li>
-            <li><a href="#experience"            class="nav__link" data-i18n="nav.experience">Experience</a></li>
-            <li><a href="#skills"                class="nav__link" data-i18n="nav.skills">Skills</a></li>
-            <li><a href="#contact"               class="nav__link" data-i18n="nav.contact">Contact</a></li>
-            <li><a href="projects.html"          class="nav__link" data-i18n="nav.projects">Projects</a></li>
-            <li><a href="certifications.html"    class="nav__link" data-i18n="nav.certifications">Certifications</a></li>
+            <li><a href="index.html#about" class="nav__link" data-i18n="nav.about">About</a></li>
+            <li><a href="index.html#skills" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="projects.html" class="nav__link" data-i18n="nav.projects">Use cases</a></li>
+            <li><a href="index.html#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="certifications.html" class="nav__link" data-i18n="nav.certifications">Certifications</a></li>
         </ul>
         <div class="nav__actions">
             <button class="lang-toggle" id="langToggle" aria-label="Switch language">
@@ -85,9 +82,9 @@
             <div class="prose-grid">
                 <div class="prose fade-in">
                     <h2 class="section__title" id="background-title" data-i18n="bg.title">Who I am</h2>
-                    <p data-i18n="bg.p1">I'm Salvatore Franco — a Project Manager specialized in Digital Transformtion &amp; innovation technologies projects, and a data professional based in Italy, currently working at <strong>A2A</strong> in the Real Estate &amp; Services division. I hold a degree in Mechanical Engineering from UNICAL and have built my career at the intersection of technology, data, and operations.</p>
-                    <p data-i18n="bg.p2">Before A2A, I spent three years at <strong>Accenture Strategy &amp; Consulting</strong>, leading digital transformation and innovation technology projects for a world leader in high jewelry, luxury and perfume. I joined on 27+ projects where I supervised cross-functional teams, and also developed complex Power BI reports and No-Code/Low-Code web apps integrated with chatbots and SCARA robots.</p>
-                    <p data-i18n="bg.p3">I care about delivering real, measurable impact — whether that's a multi-system SAP migration, a real-time KPI dashboard, or a small automation that saves a team hours every week. Outside of work, I'm deepening my web development skills and building side projects.</p>
+                    <p data-i18n="bg.p1">I'm Salvatore Franco — a Project Manager specialized in Digital Transformation &amp; innovation technology projects, and a data professional based in Italy, currently working at a large Italian group. I hold a degree in Mechanical Engineering from UNICAL and have built my career at the intersection of technology, data, and operations.</p>
+                    <p data-i18n="bg.p2">Before that, I spent three years at an international consulting firm, working on digital transformation and innovation technology projects for an international manufacturing group. I joined on 27+ projects where I supervised cross-functional teams, and also developed complex Power BI reports and No-Code/Low-Code web apps integrated with chatbots and SCARA robots.</p>
+                    <p data-i18n="bg.p3">I work on multi-system SAP migrations, KPI dashboards and small automations. Outside of work, I'm deepening my web development and AI skills and building side projects.</p>
                 </div>
                 <aside class="about-sidebar fade-in" aria-label="Key information">
                     <div class="info-block">
@@ -96,18 +93,11 @@
                     </div>
                     <div class="info-block">
                         <span class="info-block__label mono" data-i18n="sidebar.role.label">Current Role</span>
-                        <span class="info-block__value">Digital Transformation Projects - PM / PMO @ A2A</span>
+                        <span class="info-block__value">Digital Transformation Projects - PM / PMO</span>
                     </div>
                     <div class="info-block">
                         <span class="info-block__label mono" data-i18n="sidebar.degree.label">Degree</span>
                         <span class="info-block__value" data-i18n="sidebar.degree.value">Mechanical Engineering — UNICAL</span>
-                    </div>
-                    <div class="info-block">
-                        <span class="info-block__label mono" data-i18n="sidebar.status.label">Status</span>
-                        <span class="info-block__value status-available" data-i18n="sidebar.status.value">
-                            <span class="hero__status-dot" aria-hidden="true"></span>
-                            Available for projects
-                        </span>
                     </div>
                 </aside>
             </div>
@@ -117,16 +107,16 @@
     <!-- ── EXPERIENCE ── -->
     <section class="section section--surface" id="experience" aria-labelledby="experience-title">
         <div class="container">
-            <span class="section__label mono fade-in" data-i18n="exp.label">02 — Experience</span>
+            <span class="section__label mono fade-in" data-i18n="exp.label">03 — Experience</span>
             <h2 class="section__title fade-in" id="experience-title" data-i18n="exp.title">What I've built</h2>
 
             <div class="exp-list fade-in">
 
-                <!-- A2A -->
+                <!-- Ruolo attuale -->
                 <article class="exp-item">
                     <div class="exp-item__header">
                         <div>
-                            <span class="exp-item__company mono">A2A SpA</span>
+                            <span class="exp-item__company mono" data-i18n="exp.1.company">Large Italian group</span>
                             <h3 class="exp-item__role">PMO Specialist</h3>
                         </div>
                         <div class="exp-item__date mono" data-i18n="exp.1.date">
@@ -135,10 +125,11 @@
                     </div>
                     <p class="exp-item__desc" data-i18n="exp.1.desc">PMO role within the Project Services &amp; PMO department. Managing and supervising macro-projects on digital integration, governance, Data Platform and internal training across the group.</p>
                     <div class="exp-item__subs">
-                        <div class="exp-item__sub" data-i18n="exp.1.sub1"><strong>Team Leader Digital Governance · AEB Group Acquisition</strong> — Overseeing integration and migration of all AEB Group management systems into A2A's application landscape.</div>
-                        <div class="exp-item__sub" data-i18n="exp.1.sub2"><strong>Team Leader Digital Governance · LeReti Transition</strong> — Integration and migration of LeReti management systems into the A2A ecosystem.</div>
+                        <div class="exp-item__sub" data-i18n="exp.1.sub1"><strong>Digital Governance · Acquisition of a group</strong> — Overseeing integration and migration of all the acquired group's management systems into the company's application landscape. In the Team Leader role, I managed and supervised all project phases, coordinating cross-functional teams and tracking timelines and strategic objectives, reporting directly to Digital Management and the project's sponsor.</div>
+                        <div class="exp-item__sub" data-i18n="exp.1.sub2"><strong>Digital Governance · Digital transition of a controlled company</strong> — Integration and migration of a controlled company's management systems into the group's ecosystem, with direct reporting to ICT Management and the company's leadership.</div>
                         <div class="exp-item__sub" data-i18n="exp.1.sub3"><strong>Team Leader &amp; PM · Data Platform BU Corporate</strong> — Leading a team of 3 PMOs and supervising external partner across Procurement, AFC, Digital Transformation, People &amp; Transformation.</div>
-                        <div class="exp-item__sub" data-i18n="exp.1.sub4"><strong>Structural activities</strong> — iLaber coordination (PMO interns) for the production of training materials, intranet maintenance, PM toolbox, Project Sustainability Handbook, PM training courses teaching, teaching at Bollate Prison.</div>
+                        <div class="exp-item__sub" data-i18n="exp.1.sub4"><strong>Structural activities</strong> — Coordinating PMO interns for the production of training materials, maintenance of the structure's intranet, collaboration on toolbox (tools for PMs), structure OKRs, teaching in the group's internal training courses for intermediate and basic PMs, volunteer training, point of reference in the Technology structure.</div>
+                        <div class="exp-item__sub" data-i18n="exp.1.sub5"><strong>AI Champion</strong> — Coordinating a team of 5 people in building agentic solutions with Microsoft Copilot Studio and promoting AI tools across a group company.</div>
                     </div>
                     <div class="exp-item__tags">
                         <span class="tag tag--project">PMO</span>
@@ -150,16 +141,16 @@
                     </div>
                 </article>
 
-                <!-- Accenture — SAP -->
+                <!-- Consulenza — SAP -->
                 <article class="exp-item">
                     <div class="exp-item__header">
                         <div>
-                            <span class="exp-item__company mono">Accenture · Strategy &amp; Consulting</span>
+                            <span class="exp-item__company mono" data-i18n="exp.2.company">International consulting firm</span>
                             <h3 class="exp-item__role">Enterprise Platforms Consultant (SAP)</h3>
                         </div>
                         <div class="exp-item__date mono" data-i18n="exp.2.date">Dec 2023 — Feb 2025</div>
                     </div>
-                    <p class="exp-item__desc" data-i18n="exp.2.desc">Functional consultant for a world leader in high jewelry, luxury and perfume (LVMH group). ERP replacement project from SAP R/3 to S/4HANA with global market impact.</p>
+                    <p class="exp-item__desc" data-i18n="exp.2.desc">Functional consultant for an international manufacturing group. ERP update from SAP R/3 to S/4HANA.</p>
                     <div class="exp-item__subs">
                         <div class="exp-item__sub" data-i18n="exp.2.sub1">Streams: Master Data, Distribution, Manufacturing, After Sales Services. AS-IS analysis, BPML &amp; Core Model design, BBP, configurations. Managing 15+ RICEFWs with CRM and SAP R/3→S/4 integrations.</div>
                     </div>
@@ -167,26 +158,25 @@
                         <span class="tag tag--web">SAP S/4HANA</span>
                         <span class="tag tag--web">SAP R/3</span>
                         <span class="tag tag--report">ERP Migration</span>
-                        <span class="tag tag--featured">Luxury</span>
                     </div>
                 </article>
 
-                <!-- Accenture — PM -->
+                <!-- Consulenza — PM -->
                 <article class="exp-item">
                     <div class="exp-item__header">
                         <div>
-                            <span class="exp-item__company mono">Accenture · Strategy &amp; Consulting</span>
+                            <span class="exp-item__company mono" data-i18n="exp.3.company">International consulting firm</span>
                             <h3 class="exp-item__role">Project Manager — Digital Transformation &amp; Innovation Technology</h3>
                         </div>
                         <div class="exp-item__date mono" data-i18n="exp.3.date">Feb 2022 — Dec 2023</div>
                     </div>
-                    <p class="exp-item__desc" data-i18n="exp.3.desc">PM at a luxury client's production site (LVMH group). Managing 27 projects end-to-end (18 released), supervising teams of 2–3 people, reporting directly to the plant's IT Manager.</p>
+                    <p class="exp-item__desc" data-i18n="exp.3.desc">PM at the production site of an international manufacturing group. Managed 27 projects end-to-end (18 released), supervising teams of 2–3 people, reporting directly to the plant's IT Manager.</p>
                     <div class="exp-item__subs">
                         <div class="exp-item__sub" data-i18n="exp.3.sub1">Advanced Power BI reports integrated with MES and SAP (workforce management, Industry 4.0, asset management, production).</div>
-                        <div class="exp-item__sub" data-i18n="exp.3.sub2"><strong>Contapietre Robot</strong> — Power App integrated with SCARA robot and MES for precious stones warehouse monitoring.</div>
-                        <div class="exp-item__sub" data-i18n="exp.3.sub3"><strong>Suggestion App</strong> — Power App with SSO and Power BI dashboard for employee suggestion collection and analysis.</div>
+                        <div class="exp-item__sub" data-i18n="exp.3.sub2"><strong>Robot inventory app</strong> — Power App integrated with a SCARA robot and MES to monitor the stock of high-value components against production orders.</div>
+                        <div class="exp-item__sub" data-i18n="exp.3.sub3"><strong>Suggestions app</strong> — Power App with SSO and Power BI dashboard for employee suggestion collection and analysis.</div>
                         <div class="exp-item__sub" data-i18n="exp.3.sub4"><strong>Asset Manager</strong> — Power App + Power Automate for maintenance management, reminders, costs and asset certifications.</div>
-                        <div class="exp-item__sub" data-i18n="exp.3.sub5">Supported the IT Manager in defining and presenting the Digital Transformation strategy to LVMH central team — plan approved. Received <strong>"Recognize" award</strong> from Accenture SC&amp;O leadership.</div>
+                        <div class="exp-item__sub" data-i18n="exp.3.sub5">Supported the IT Manager in defining and presenting the Digital Transformation strategy to the group's central team.</div>
                     </div>
                     <div class="exp-item__tags">
                         <span class="tag tag--web">Power Apps</span>
@@ -233,7 +223,7 @@
     <!-- ── SKILLS ── -->
     <section class="section" id="skills" aria-labelledby="skills-title">
         <div class="container">
-            <span class="section__label mono fade-in" data-i18n="abt.skills.label">03 — Skills</span>
+            <span class="section__label mono fade-in" data-i18n="abt.skills.label">04 — Skills</span>
             <h2 class="section__title fade-in" id="skills-title" data-i18n="abt.skills.title">What I work with</h2>
 
             <div class="skills-groups fade-in">
@@ -296,7 +286,7 @@
     <!-- ── EDUCATION ── -->
     <section class="section section--surface" id="education" aria-labelledby="education-title">
         <div class="container">
-            <span class="section__label mono fade-in" data-i18n="edu.label">04 — Education</span>
+            <span class="section__label mono fade-in" data-i18n="edu.label">05 — Education</span>
             <h2 class="section__title fade-in" id="education-title" data-i18n="edu.title">Academic background</h2>
             <div class="edu-cards fade-in">
                 <div class="edu-card">
@@ -318,38 +308,28 @@
         </div>
     </section>
 
-    <!-- ── CONTACT CTA ── -->
-    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
-        <div class="container">
-            <div class="contact-inner fade-in">
-                <span class="section__label mono" data-i18n="abt.contact.label">05 — Contact</span>
-                <h2 class="section__title contact__title" id="contact-title" data-i18n="contact.title">
-                    Let's work<br><span class="text-gradient">together.</span>
-                </h2>
-                <p class="contact__subtitle" data-i18n="contact.sub">Have a project in mind or just want to connect? I'd love to hear from you.</p>
-                <a href="mailto:salvatorefranco@outlook.it" class="btn btn--primary btn--lg">
-                    salvatorefranco@outlook.it
-                </a>
-                <div class="contact__socials">
-                    <a href="https://www.linkedin.com/in/salvatorefranco" target="_blank" rel="noopener noreferrer" class="contact__social">LinkedIn ↗</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     </main>
 
     <!-- ── FOOTER ── -->
     <footer class="footer" role="contentinfo">
         <div class="container footer__inner">
-            <span class="footer__copy">© 2025 Salvatore Franco</span>
-            <a href="https://www.linkedin.com/in/salvatorefranco" target="_blank" rel="noopener noreferrer" class="footer__link mono">LinkedIn</a>
+            <span class="footer__copy">© 2026 Salvatore Franco</span>
+            <a href="mailto:salvatorefranco@outlook.it" class="footer__credit mono">salvatorefranco@outlook.it</a>
+            <a href="https://www.linkedin.com/in/salvatorefranco" target="_blank" rel="noopener noreferrer" class="footer__credit mono">LinkedIn</a>
+            <span class="footer__credit mono">Venegono Inferiore (VA)</span>
+            <a href="privacy.html" class="footer__credit mono" data-i18n="footer.privacy">Privacy</a>
             <span class="footer__credit mono" data-i18n="footer.credit">Built with HTML · CSS · JS</span>
         </div>
     </footer>
 
     <!-- Language support -->
     <script src="i18n.js"></script>
+
+    <!-- Custom background -->
+    <script src="js/gradient.js"></script>
+    <script src="js/bg-gradient.js"></script>
+    <script src="js/cursor.js"></script>
 
     <script>
         // Mobile nav toggle

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certifications — Salvatore Franco</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="stylesheet" href="portfolio.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="certifications.css">
@@ -18,7 +16,7 @@
         (function(){
             var t = localStorage.getItem('theme');
             if (t) document.documentElement.setAttribute('data-theme', t);
-            var l = localStorage.getItem('lang');
+            var l = localStorage.getItem('lang') || 'it';
             if (l && l !== 'en') {
                 document.documentElement.lang = l;
                 document.documentElement.classList.add('i18n-loading');
@@ -36,12 +34,11 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav__links" id="navLinks" role="list">
-            <li><a href="index.html#home"                  class="nav__link" data-i18n="nav.about">About</a></li>
-            <li><a href="index.html#experience"            class="nav__link" data-i18n="nav.experience">Experience</a></li>
-            <li><a href="index.html#skills"                class="nav__link" data-i18n="nav.skills">Skills</a></li>
-            <li><a href="index.html#contact"               class="nav__link" data-i18n="nav.contact">Contact</a></li>
-            <li><a href="projects.html"          class="nav__link" data-i18n="nav.projects">Projects</a></li>
-            <li><a href="certifications.html"    class="nav__link" data-i18n="nav.certifications">Certifications</a></li>
+            <li><a href="index.html#about" class="nav__link" data-i18n="nav.about">About</a></li>
+            <li><a href="index.html#skills" class="nav__link" data-i18n="nav.skills">Skills</a></li>
+            <li><a href="projects.html" class="nav__link" data-i18n="nav.projects">Use cases</a></li>
+            <li><a href="index.html#experience" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+            <li><a href="certifications.html" class="nav__link" data-i18n="nav.certifications">Certifications</a></li>
         </ul>
         <div class="nav__actions">
             <button class="lang-toggle" id="langToggle" aria-label="Switch language">
@@ -90,15 +87,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.1.title">Claude Code in Action</h3>
-                    <div class="cert-card__id mono" aria-label="Credential ID">
-                        <span class="cert-card__id-label" data-i18n="cert.id">ID</span>
-                        pfsn96d98ura
-                    </div>
-                    <div class="cert-card__skills">
-                        <span class="pill pill--accent">Claude Code</span>
-                        <span class="pill pill--accent">Anthropic Claude</span>
-                        <span class="pill">AI Development</span>
-                    </div>
                 </article>
 
                 <!-- Claude 101 -->
@@ -111,13 +99,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.2.title">Certificate of Completion: Claude 101</h3>
-                    <div class="cert-card__id mono" aria-label="Credential ID">
-                        <span class="cert-card__id-label" data-i18n="cert.id">ID</span>
-                        kptrqi3yzgw8
-                    </div>
-                    <div class="cert-card__skills">
-                        <span class="pill">Artificial Intelligence</span>
-                    </div>
                 </article>
 
                 <!-- Gen AI for PM — PMI -->
@@ -130,10 +111,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.3.title">Practical Application of Gen AI for Project Managers</h3>
-                    <div class="cert-card__skills">
-                        <span class="pill">Project Management</span>
-                        <span class="pill">Artificial Intelligence</span>
-                    </div>
                 </article>
 
                 <!-- AI For Everyone — Coursera -->
@@ -146,13 +123,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.4.title">AI For Everyone</h3>
-                    <div class="cert-card__id mono" aria-label="Credential ID">
-                        <span class="cert-card__id-label" data-i18n="cert.id">ID</span>
-                        5JLQP8FCMMBR
-                    </div>
-                    <div class="cert-card__skills">
-                        <span class="pill">Artificial Intelligence</span>
-                    </div>
                 </article>
 
                 <!-- AI Explained — Coursera -->
@@ -165,9 +135,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.5.title">AI Explained</h3>
-                    <div class="cert-card__skills">
-                        <span class="pill">Artificial Intelligence</span>
-                    </div>
                 </article>
 
             </div>
@@ -192,13 +159,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.6.title">Project Execution: Running the Project</h3>
-                    <div class="cert-card__id mono" aria-label="Credential ID">
-                        <span class="cert-card__id-label" data-i18n="cert.id">ID</span>
-                        28XP3XC8EGMC
-                    </div>
-                    <div class="cert-card__skills">
-                        <span class="pill">Project Management</span>
-                    </div>
                 </article>
 
                 <!-- Project Planning -->
@@ -211,9 +171,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.7.title">Project Planning: Putting It All Together</h3>
-                    <div class="cert-card__skills">
-                        <span class="pill">Project Management</span>
-                    </div>
                 </article>
 
                 <!-- Project Initiation -->
@@ -226,10 +183,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.8.title">Project Initiation: Starting a Successful Project</h3>
-                    <div class="cert-card__skills">
-                        <span class="pill">Agile Project Management</span>
-                        <span class="pill">Storytelling</span>
-                    </div>
                 </article>
 
                 <!-- Foundations of PM -->
@@ -242,10 +195,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.9.title">Foundations of Project Management</h3>
-                    <div class="cert-card__skills">
-                        <span class="pill">Agile Project Management</span>
-                        <span class="pill">Storytelling</span>
-                    </div>
                 </article>
 
             </div>
@@ -270,14 +219,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.10.title">Create a Budget with Google Sheets</h3>
-                    <div class="cert-card__id mono" aria-label="Credential ID">
-                        <span class="cert-card__id-label" data-i18n="cert.id">ID</span>
-                        IJPU6ZPOZ1UP
-                    </div>
-                    <div class="cert-card__skills">
-                        <span class="pill">Planning</span>
-                        <span class="pill">Budgeting &amp; Forecasting</span>
-                    </div>
                 </article>
 
                 <!-- B2-C1 ABA English -->
@@ -290,10 +231,6 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.11.title">B2-C1 Advanced English</h3>
-                    <div class="cert-card__skills">
-                        <span class="pill">English</span>
-                        <span class="pill">B2 — C1</span>
-                    </div>
                 </article>
 
                 <!-- B1 Cambridge -->
@@ -306,47 +243,34 @@
                         </div>
                     </div>
                     <h3 class="cert-card__title" data-i18n="cert.12.title">B1 English Certificate</h3>
-                    <div class="cert-card__skills">
-                        <span class="pill">English</span>
-                        <span class="pill">B1</span>
-                    </div>
                 </article>
 
             </div>
         </div>
     </section>
 
-    <!-- ── CONTACT CTA ── -->
-    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
-        <div class="container">
-            <div class="contact-inner fade-in">
-                <span class="section__label mono" data-i18n="abt.contact.label">04 — Contact</span>
-                <h2 class="section__title contact__title" id="contact-title" data-i18n="contact.title">
-                    Let's work<br><span class="text-gradient">together.</span>
-                </h2>
-                <p class="contact__subtitle" data-i18n="contact.sub">Have a project in mind or just want to connect? I'd love to hear from you.</p>
-                <a href="mailto:salvatorefranco@outlook.it" class="btn btn--primary btn--lg">
-                    salvatorefranco@outlook.it
-                </a>
-                <div class="contact__socials">
-                    <a href="https://www.linkedin.com/in/salvatorefranco" target="_blank" rel="noopener noreferrer" class="contact__social">LinkedIn ↗</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     </main>
 
     <!-- ── FOOTER ── -->
     <footer class="footer" role="contentinfo">
         <div class="container footer__inner">
-            <span class="footer__copy">© 2025 Salvatore Franco</span>
+            <span class="footer__copy">© 2026 Salvatore Franco</span>
+            <a href="mailto:salvatorefranco@outlook.it" class="footer__credit mono">salvatorefranco@outlook.it</a>
+            <a href="https://www.linkedin.com/in/salvatorefranco" target="_blank" rel="noopener noreferrer" class="footer__credit mono">LinkedIn</a>
+            <span class="footer__credit mono">Venegono Inferiore (VA)</span>
+            <a href="privacy.html" class="footer__credit mono" data-i18n="footer.privacy">Privacy</a>
             <span class="footer__credit mono" data-i18n="footer.credit">Built with HTML · CSS · JS</span>
         </div>
     </footer>
 
     <!-- Language support -->
     <script src="i18n.js"></script>
+
+    <!-- Custom background -->
+    <script src="js/gradient.js"></script>
+    <script src="js/bg-gradient.js"></script>
+    <script src="js/cursor.js"></script>
 
     <script>
         // Mobile nav toggle
